@@ -65,6 +65,13 @@ Now let's get to work and create our playbooks on *guest* host *Ansible*. Ansibl
 	git clone https://github.com/4orbit/ansible-PG-tuto.git
 	cd ansible-PG-tuto
 
+	[ansible@ansible ansible-PG-tuto]$ cat step-00/hosts.cfg 
+	[dbservers]
+	pg1 ansible_ssh_pass=ansible ansible_sudo_pass=ansible
+	pg2 ansible_ssh_pass=ansible ansible_sudo_pass=ansible
+	pg3 ansible_ssh_pass=ansible ansible_sudo_pass=ansible
+
+## Ping pg servers
 
 
 
