@@ -3,7 +3,7 @@ Add repos: PostgreSQL Versions 9.4 and 9.6
 
 With the repo configured, we can now install the **rpms**. Notice the use of variables and the loop **with\_items** in our playbook invocation:
 
-	ansible-playbook -i step-02/hosts.cfg 02.install_94.yml
+	ansible-playbook -i step-02/hosts.cfg 02.install_94.yml --extra-vars "host=dbservers"
 
 ``` ansible
 ---
