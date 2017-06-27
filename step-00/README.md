@@ -19,6 +19,29 @@ Let's start the container, adding the following packages:
 		echo -e '\n\n# ANSIBLE GLOBAL PERMISSIONS FOR DEMO PURPOSES ONLY\nansible ALL=(ALL) PASSWD:ALL' >> /etc/sudoers
 	_eof_
 
+```Note!!!ssh
+
+If ssh to slow
+
+Add string at end of /etc/ssh/ssh_conf
+
+	AddressFamily inet
+
+Аdd string at ent of /etc/ssh/sshd_conf
+
+	UseDNS no
+
+and set 
+
+	GSSAPIAuthentication no
+	#	GSSAPIAuthentication yes
+
+If not whant add accept all ssh key manyaly. Run command like this:
+	
+	ANSIBLE_HOST_KEY_CHECKING=false ansible -i step-00/hosts.cfg -m ping all
+
+```Note_END
+
 Now we're ready to make our actual containers:
 
 	lxc-stop -n template_centos6
@@ -75,5 +98,23 @@ Now let's get to work and create our playbooks on *guest* host *Ansible*. Ansibl
 ## Ping pg servers
 
 
+	ansible -i step-00/hosts.cfg -m ping all
 
 
+Here's the output:
+
+	pg2 | SUCCESS => {
+	    "changed": false, 
+	    "ping": "pong"
+	}
+	pg3 | SUCCESS => {
+	    "changed": false, 
+	    "ping": "pong"
+	}
+	pg1 | SUCCESS => {
+	    "changed": false, 
+	    "ping": "pong"
+	}
+
+
+Now head to next step in directory [step-01](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-01).
