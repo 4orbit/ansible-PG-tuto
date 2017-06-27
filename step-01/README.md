@@ -23,3 +23,5 @@ Playbook **01.install\_repo.yml** installs the **postgres.org** repository onto 
         state: present
 ...
 ```
+
+Now head to next step in directory [step-02](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-02).
