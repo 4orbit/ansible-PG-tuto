@@ -1,0 +1,13 @@
+---
+- hosts: dbservers
+  remote_user: ansible
+  become: yes
+ 
+  tasks:
+    - name: install SSH key
+      authorized_key:
+	      key: "{{ lookup('file', '/home/ansible/.ssh/id_rsa.pub') }}"
+	      user: "{{user}}"
+	      state: present
+...
+
