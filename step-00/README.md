@@ -19,7 +19,6 @@ Let's start the container, adding the following packages:
 		echo -e '\n\n# ANSIBLE GLOBAL PERMISSIONS FOR DEMO PURPOSES ONLY\nansible ALL=(ALL) PASSWD:ALL' >> /etc/sudoers
 	_eof_
 
-```
 If ssh to slow
 
 Add string at end of /etc/ssh/ssh_conf
@@ -38,7 +37,6 @@ and set
 If not whant add accept all ssh key manyaly. Run command like this:
 	
 	ANSIBLE_HOST_KEY_CHECKING=false ansible -i step-00/hosts.cfg -m ping all
-```
 
 Now we're ready to make our actual containers:
 
