@@ -1,5 +1,5 @@
 ---
-- hosts: {{ old_master }}
+- hosts: "{{ old_master }}"
   remote_user: ansible
   become: yes
 
@@ -8,11 +8,11 @@
         name: postgresql-9.4
         state: stopped
 
-- hosts: {{ new_master }}
+- hosts: "{{ new_master }"}
   remote_user: postgres
 
   tasks:
-    - name: promote data cluster pg4
+    - name: promote new master for data cluster
       command:  /usr/pgsql-9.4/bin/pg_ctl -D /var/lib/pgsql/9.4/data/ promote
 ...
 
