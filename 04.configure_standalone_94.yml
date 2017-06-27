@@ -1,0 +1,69 @@
+---
+- hosts: "{{ host }}"
+  remote_user: ansible
+  become: yes
+ 
+  tasks:
+    - name: create data cluster
+      command: service postgresql-9.4 initdb
+ 
+    - service:
+        name: postgresql-9.4
+        state: started
+ 
+- hosts: "{{ host }}"
+  remote_user: postgres
+ 
+  tasks:
+    - name: create ROLE replicant
+      postgresql_user:
+        db: postgres
+        login_unix_socket: /tmp
+        name: replicant
+        password: "{{ passwd }}"
+        role_attr_flags: LOGIN,REPLICATION
+ 
+    - name: add new configuration to "postgresql.conf"
+      blockinfile:
+        dest: /var/lib/pgsql/9.4/data/postgresql.conf
+        block: |
+          include 'server.conf'
+ 
+    - name: add new configuration to "server.conf"
+      blockinfile:
+        create: yes
+        dest: /var/lib/pgsql/9.4/data/server.conf
+        block: |
+          listen_addresses = '*'
+          wal_level = hot_standby
+          checkpoint_segments = 10
+          max_wal_senders = 6
+          wal_keep_segments = 10
+          hot_standby = on
+ 
+    - name: add new configuration to "pg_hba.conf"
+      blockinfile:
+        dest: /var/lib/pgsql/9.4/data/pg_hba.conf
+        block: |
+          host    all             all             0.0.0.0/0                md5
+          host    replication     replicant       0.0.0.0/0                md5
+ 
+    - name: update environment variables in UNIX account postgres
+      blockinfile:
+        create: yes
+        dest: /var/lib/pgsql/.pgsql_profile
+        block: |
+          export PGHOST=/tmp PAGER=less PGDATA=/var/lib/pgsql/9.4/data
+ 
+- hosts: "{{ host }}"
+  remote_user: ansible
+  become: yes
+ 
+  tasks:
+    - service:
+        name: postgresql-9.4
+        state: restarted
+ 
+    - name: configure init for startup on bootup
+      shell: chkconfig --level 2345 postgresql-9.4 on
+...
