@@ -24,5 +24,6 @@ Here's our playbook, **03.install\_key.yml**:
 And here's our invocation. Notice the use the extra variable identifying Unix account **Ansible**:
 
 	ansible-playbook -i step-03/hosts.cfg 03.install_key.yml --extra-vars "user=ansible"
+	ansible-playbook -i step-03/hosts.cfg 03.install_key.yml --extra-vars "user=postgres"
 
 Now head to next step in directory [step-04](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-04).
