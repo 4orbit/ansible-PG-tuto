@@ -1,0 +1,15 @@
+---
+- hosts: "{{ host }}"
+  remote_user: ansible
+  become: yes
+ 
+  tasks:
+    - name: install PostgreSQL version 9.4
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - postgresql94-server
+        - postgresql94-contrib
+        - pg_repack94
+...
