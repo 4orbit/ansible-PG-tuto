@@ -88,8 +88,5 @@ And here's our invocation. Notice we've typed out the replication password as an
       shell: chkconfig --level 2345 postgresql-9.4 on
 ...
 ```
-in /etc/ansible/ansible.conf
-set
-    allow_world_readable_tmpfiles = True
 
 Now head to next step in directory [step-05](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-05).
