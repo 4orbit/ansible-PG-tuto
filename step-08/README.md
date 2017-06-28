@@ -6,7 +6,7 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
     ansible-playbook -i step-08/hosts.cfg 08.configure_slave_96.yml --extra-vars "master=pg1 slave=pg2 passwd=mypassword"
     ansible-playbook -i step-08/hosts.cfg 08.configure_slave_96.yml --extra-vars "master=pg2 slave=pg3 passwd=mypassword"
 
-``` ansible
+```yaml
 ---
 - hosts: "{{ slave }}"
   remote_user: ansible
@@ -77,7 +77,7 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
 Test our cluster install with next command:
 
 
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'create table pg96a_random as select s, md5(random()::text) from generate_Series(1,2) s;'"  -u postgres
 pg2 | FAILED | rc=1 >>
 ERROR:  cannot execute CREATE TABLE AS in a read-only transaction
@@ -90,7 +90,7 @@ SELECT 2
 
 ```
 And see replication result^
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'table pg96a_random'"  -u postgres
 pg1 | SUCCESS | rc=0 >>
  s |               md5                

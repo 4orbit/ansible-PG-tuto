@@ -1,4 +1,4 @@
-Add repos: PostgreSQL Versions 9.4 and 9.6
+Install Postgres packages, 9.4
 ================
 
 With the repo configured, we can now install the **rpms**. Notice the use of variables and the loop **with\_items** in our playbook invocation:
