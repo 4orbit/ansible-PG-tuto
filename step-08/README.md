@@ -3,8 +3,8 @@ Invoke failover
 
 This script is virtually the same as script **05.configure\_slave\_94.yml**. You might even want to edit it, thus eliminating one script from your collection:
 
-    ansible-playbook -i step-08/hosts.cfg 08.configure_slave_94.yml --extra-vars "master=pg1 slave=pg2 passwd=mypassword"
-    ansible-playbook -i step-08/hosts.cfg 08.configure_slave_94.yml --extra-vars "master=pg2 slave=pg3 passwd=mypassword"
+    ansible-playbook -i step-08/hosts.cfg 08.configure_slave_96.yml --extra-vars "master=pg1 slave=pg2 passwd=mypassword"
+    ansible-playbook -i step-08/hosts.cfg 08.configure_slave_96.yml --extra-vars "master=pg2 slave=pg3 passwd=mypassword"
 
 ``` ansible
 ---
