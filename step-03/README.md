@@ -16,9 +16,9 @@ Here's our playbook, **03.install\_key.yml**:
   tasks:
     - name: install SSH key
       authorized_key:
-	      key: "{{ lookup('file', '/home/ansible/.ssh/id_rsa.pub') }}"
-	      user: "{{user}}"
-	      state: present
+          key: "{{ lookup('file', '/home/ansible/.ssh/id_rsa.pub') }}"
+          user: "{{user}}"
+          state: present
 ...
 ```
 And here's our invocation. Notice the use the extra variable identifying Unix account **Ansible**:

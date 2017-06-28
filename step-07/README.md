@@ -17,7 +17,7 @@ In this example, we upgrade **pg1**, which was shut down in our failover example
 * Start up our new Postgres version 9.6 service
 
 Before upgrade:
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'select version();'"  -u postgres
 pg1 | FAILED | rc=2 >>
 psql: could not connect to server: No such file or directory
@@ -40,7 +40,7 @@ pg2 | SUCCESS | rc=0 >>
 
 Note: As there's more than one way to skin a cat, so too are there many ways of writing this playbook; it's up to you.
 
-```
+```yanl
 ---
 - hosts: all
   remote_user: ansible
@@ -142,7 +142,7 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
 
 ```
 After upgrade
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'select version();'"  -u postgres
 pg2 | FAILED | rc=2 >>
 psql: could not connect to server: No such file or directory
