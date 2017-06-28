@@ -5,6 +5,53 @@
 
 exec sql commant on all my servers by ansible
 
+determine it is master or replica:
+      ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'SELECT pg_is_in_recovery();'"  -u postgres
+
+``` 
+[ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'create table pgf_random as select s, md5(random()::text) from generate_Series(1,6) s;'"  -u postgres
+pg1 | FAILED | rc=2 >>
+psql: could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+
+pg3 | FAILED | rc=1 >>
+ERROR:  cannot execute CREATE TABLE AS in a read-only transaction
+
+pg2 | SUCCESS | rc=0 >>
+SELECT 6
+
+[ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'table pgf_random;'"  -u postgres
+pg3 | SUCCESS | rc=0 >>
+ s |               md5                
+---+----------------------------------
+ 1 | 18cf0c4b0ebed942d84781dde9143615
+ 2 | 5a22aecfb45fcf56534f5f8c59f39960
+ 3 | 51cddc5fdab503fb016fe3bef819c825
+ 4 | 594295b7d4fc8d61563210313eaf6d40
+ 5 | 8685a0c812afbcdcfe607db57815e1cc
+ 6 | f377a9c69f240563e41c1fff99e3c264
+(6 rows)
+
+pg1 | FAILED | rc=2 >>
+psql: could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+
+pg2 | SUCCESS | rc=0 >>
+ s |               md5                
+---+----------------------------------
+ 1 | 18cf0c4b0ebed942d84781dde9143615
+ 2 | 5a22aecfb45fcf56534f5f8c59f39960
+ 3 | 51cddc5fdab503fb016fe3bef819c825
+ 4 | 594295b7d4fc8d61563210313eaf6d40
+ 5 | 8685a0c812afbcdcfe607db57815e1cc
+ 6 | f377a9c69f240563e41c1fff99e3c264
+(6 rows)
+
+[ansible@ansible ansible-PG-tuto]$ 
+
+```
 
 # The end
 

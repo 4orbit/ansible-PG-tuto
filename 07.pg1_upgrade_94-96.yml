@@ -1,0 +1,98 @@
+---
+- hosts: all
+  remote_user: ansible
+  become: yes
+ 
+  tasks:
+    - name: install repo for PostgreSQL 9.6
+      yum:
+        name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-6-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+        state: present
+ 
+    - name: install PostgreSQL version 9.6
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - postgresql96-server
+        - postgresql96-contrib
+        - pg_repack96
+ 
+    - name: disable init for 9.4
+      shell: chkconfig --level 2345 postgresql-9.4 off
+ 
+    - name: enable init for 9.6
+      shell: chkconfig --level 2345 postgresql-9.6 on
+ 
+- hosts: pg1
+  remote_user: ansible
+  become: yes
+ 
+  tasks:
+    - service:
+        name: postgresql-9.6
+        state: stopped
+ 
+    - file:
+        path: /var/lib/pgsql/9.6/data/
+        state: absent
+ 
+    - name: create data cluster
+      command: service postgresql-9.6 initdb
+ 
+- hosts: pg1
+  remote_user: postgres
+ 
+  tasks:
+    - name: execute the upgrade from 9.4 to 9.6
+      shell: |
+        /usr/pgsql-9.6/bin/pg_upgrade \
+          -d /var/lib/pgsql/9.4/data \
+          -D /var/lib/pgsql/9.6/data \
+          -b /usr/pgsql-9.4/bin \
+          -B /usr/pgsql-9.6/bin \
+          -p 10094 \
+          -P 5432
+ 
+        exit 0
+ 
+    - name: add new configuration to "postgresql.conf"
+      blockinfile:
+        dest: /var/lib/pgsql/9.6/data/postgresql.conf
+        block: |
+          include 'server.conf'
+ 
+    - name: add new configuration to "server.conf"
+      blockinfile:
+        create: yes
+        dest: /var/lib/pgsql/9.6/data/server.conf
+        block: |
+          listen_addresses = '*'
+          wal_level = hot_standby
+          max_wal_senders = 6
+          wal_keep_segments = 10
+          hot_standby = on
+ 
+    - name: add new configuration to "pg_hba.conf"
+      blockinfile:
+        dest: /var/lib/pgsql/9.6/data/pg_hba.conf
+        block: |
+          host    all             all             0.0.0.0/0                md5
+          host    replication     replicant       0.0.0.0/0                md5
+ 
+    - name: update environment variables in UNIX account postgres
+      blockinfile:
+        create: yes
+        dest: /var/lib/pgsql/.pgsql_profile
+        block: |
+          export PGHOST=/tmp PAGER=less PGDATA=/var/lib/pgsql/9.6/data
+ 
+- hosts: pg1
+  remote_user: ansible
+  become: yes
+ 
+  tasks:
+    - service:
+        name: postgresql-9.6
+        state: started
+...
