@@ -1,8 +1,7 @@
 # ansible-PG-tuto
 This tutorial presents ansible in actions with PostgreSQL step-by-step
 
-Author -- Robert Bernier. See article 
-https://opensource.com/article/17/6/ansible-postgresql-operations
+Author -- [Robert Bernier](https://opensource.com/users/rbernier). Original article ["How to use Ansible to manage PostgreSQL"](https://opensource.com/article/17/6/ansible-postgresql-operations) 
 
 Ansible, an open source automation tool, can make complex configuration and management tasks in Postgres simple.
 
