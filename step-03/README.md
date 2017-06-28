@@ -7,7 +7,7 @@ Here's our playbook, **03.install\_key.yml**:
 
 	ansible-playbook -i step-02/hosts.cfg 02.install_94.yml --extra-vars "host=dbservers"
 
-``` ansible
+``` yaml
 ---
 - hosts: dbservers
   remote_user: ansible

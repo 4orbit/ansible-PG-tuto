@@ -5,7 +5,7 @@ With the repo configured, we can now install the **rpms**. Notice the use of var
 
 	ansible-playbook -i step-02/hosts.cfg 02.install_94.yml --extra-vars "host=dbservers"
 
-``` ansible
+``` yaml
 ---
 - hosts: "{{ host }}"
   remote_user: ansible

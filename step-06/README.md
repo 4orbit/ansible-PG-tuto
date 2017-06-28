@@ -5,7 +5,7 @@ Actually we just shut it down.
 
 Test **pg2**
 
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg2
 Last login: Tue Jun 27 08:49:28 2017 from 10.0.3.160
 -bash-4.1$ psql
@@ -21,7 +21,7 @@ Failover and promotion is super easy; just execute a single command against **pg
 
 	ansible-playbook -i step-06/hosts.cfg 06.failover_94.yml --extra-vars "old_master=pg1 new_master=pg2"
 
-``` ansible
+``` yaml
 ---
 - hosts: "{{ old_master }}"
   remote_user: ansible
@@ -43,7 +43,7 @@ Failover and promotion is super easy; just execute a single command against **pg
 
 a) Go to new master **pg2** and try create table
 
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg2
 Last login: Tue Jun 27 09:47:03 2017 from 10.0.3.160
 -bash-4.1$ psql
@@ -80,7 +80,7 @@ postgres=# table pg2_random ;
 
 b) See same data on **pg3**
 
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg3
 Last login: Tue Jun 27 09:08:09 2017 from 10.0.3.160
 -bash-4.1$ psql 

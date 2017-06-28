@@ -6,7 +6,7 @@ The previous script of preparing the server for standalone mode actually killed 
     ansible-playbook -i step-05/hosts.cfg 05.configure_slave_94.yml --extra-vars "master=pg1 slave=pg2 passwd=mypassword"
     ansible-playbook -i step-05/hosts.cfg 05.configure_slave_94.yml --extra-vars "master=pg2 slave=pg3 passwd=mypassword"
 
-``` ansible
+``` yaml
 ---
 - hosts: "{{ slave }}"
   remote_user: ansible
@@ -58,7 +58,7 @@ Test our cluster install with next command:
 
 a) on **pg1**
 
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg1
 Last login: Tue Jun 27 08:47:31 2017 from 10.0.3.160
 -bash-4.1$ psql
@@ -101,7 +101,7 @@ Connection to pg1 closed.
 
 b) on **pg3**
 
-```
+```bash
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg3
 Last login: Tue Jun 27 08:51:47 2017 from 10.0.3.160
 -bash-4.1$ psql 

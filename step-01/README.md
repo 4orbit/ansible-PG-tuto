@@ -5,7 +5,7 @@ Playbook **01.install\_repo.yml** installs the **postgres.org** repository onto 
 
 	ansible-playbook -i step-01/hosts.cfg 01.install_repo.yml
 
-``` ansible
+``` yaml
 ---
 - hosts: dbservers
   remote_user: ansible

@@ -17,7 +17,7 @@ And here's our invocation. Notice we've typed out the replication password as an
 
 	ansible-playbook -i step-04/hosts.cfg 04.configure_standalone_94.yml --extra-vars "host=dbservers passwd=mypassword"
 
-``` ansible
+``` yaml
 ---
 - hosts: "{{ host }}"
   remote_user: ansible
