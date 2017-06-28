@@ -83,3 +83,28 @@ felt the power of this new tool.
 
 Now go straight to [Ansible website](http://ansible.cc), dive in the docs, check references, 
 skim through playbooks, chat on freenode in #ansible, and foremost, have fun!
+
+# Conclusion
+
+Coding successfully using a relational database management system is often seen as an unsexy competency expected of any developer worth his salt. And yet, as I reflect over all the conversations, standups, and meetings I've had over the years, it has often turned out to be the most critical, time-consuming, and magical of all activities. Whole development teams will spend hours debating how data should move between the frontends and backends. Rock star developers will earn their spurs after successfully designing and implementing the movement of data between the user interface and its persistent storage. Never has so much depended upon something so mundane as the RDBMS. And never before has PostgreSQL seen, in all its long and storied history, so much adoption and critical implication into infrastructure as it has today, in this age of big data and analytics.
+
+Don't stop here! By all means, follow up on the excellent online documentation and create your own playbooks. A little word of advice, you'll go farther and faster by avoiding the temptation of learning by using one of the many Postgres modules available in the Ansible Galaxy.
+
+# Ansible references
+
+* [Getting started](https://docs.ansible.com/intro_getting_started.html)
+* [Installation](http://docs.ansible.com/ansible/intro_installation.html)
+* [Introduction to ad-hoc commands](http://docs.ansible.com/ansible/intro_adhoc.html#id7)
+* [About modules](http://docs.ansible.com/ansible/modules.html)
+* [List of all modules](http://docs.ansible.com/ansible/list_of_all_modules.html)
+* [Ansible-doc](http://manpages.ubuntu.com/manpages/xenial/man1/ansible-doc.1.html) documentation on Ansible modules
+* [Ansible man page](https://www.mankier.com/1/ansible)
+
+# Postgres references
+
+* [Red Hat Linux downloads](https://www.postgresql.org/download/linux/redhat/)
+* [PostgreSQL 9.4.12 documentation](https://www.postgresql.org/docs/9.4/static/index.html)
+* [PostgreSQL 9.6.3 documentation](https://www.postgresql.org/docs/9.6/static/index.html)
+* [PostgreSQL 9.6.3 Documentation: pg\_upgrade](https://www.postgresql.org/docs/9.6/static/pgupgrade.html)
+
+
