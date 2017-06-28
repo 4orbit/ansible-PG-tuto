@@ -16,6 +16,28 @@ In this example, we upgrade **pg1**, which was shut down in our failover example
 * Update runtime environment variables when logging into the Unix Postgres account for easier administration
 * Start up our new Postgres version 9.6 service
 
+Before upgrade:
+```
+[ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'select version();'"  -u postgres
+pg1 | FAILED | rc=2 >>
+psql: could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+
+pg3 | SUCCESS | rc=0 >>
+                                                    version                                                     
+----------------------------------------------------------------------------------------------------------------
+ PostgreSQL 9.4.12 on x86_64-unknown-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-18), 64-bit
+(1 row)
+
+pg2 | SUCCESS | rc=0 >>
+                                                    version                                                     
+----------------------------------------------------------------------------------------------------------------
+ PostgreSQL 9.4.12 on x86_64-unknown-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-18), 64-bit
+(1 row)
+
+```
+
 Note: As there's more than one way to skin a cat, so too are there many ways of writing this playbook; it's up to you.
 
 ```
@@ -119,5 +141,26 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
 ...
 
 ```
+After upgrade
+```
+[ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'select version();'"  -u postgres
+pg2 | FAILED | rc=2 >>
+psql: could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+
+pg1 | SUCCESS | rc=0 >>
+                                                 version                                                  
+----------------------------------------------------------------------------------------------------------
+ PostgreSQL 9.6.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 4.4.7 20120313 (Red Hat 4.4.7-18), 64-bit
+(1 row)
+
+pg3 | FAILED | rc=2 >>
+psql: could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+```
+
+
 
 Now head to next step in directory [step-08](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-08).
