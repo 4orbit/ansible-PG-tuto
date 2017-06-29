@@ -8,7 +8,7 @@ exec sql commant on all my servers by ansible
 determine it is master or replica:
       ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'SELECT pg_is_in_recovery();'"  -u postgres
 
-``` 
+```bash
 [ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'create table pgf_random as select s, md5(random()::text) from generate_Series(1,6) s;'"  -u postgres
 pg1 | FAILED | rc=2 >>
 psql: could not connect to server: No such file or directory
@@ -60,9 +60,18 @@ if you can properly provision your cluster with your playbook.
 
 Fire in the hole!
 
-    vagrant destroy -f
-    vagrant up
-    ansible-playbook -c paramiko -i step-00/hosts step-00/setup.yml --ask-pass --sudo
+```bash
+for u in $(seq 3)
+do
+	lxc-destroy -n pg$u
+done
+
+```
+and if need
+```bash
+lxc-destroy -n ansible
+```
+And if you want return to [step-00](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-00)
 
 (you might need to wait a little for the network to come up before
 running the last command).
