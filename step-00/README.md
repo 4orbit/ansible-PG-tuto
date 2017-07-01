@@ -3,14 +3,14 @@ How to administrate a cluster of database servers on a developer workstation
 
 As root, I create my template container:
 
-	lxc-create -t download -n template_centos6 -- --dist centos --release 6 --arch amd64
+	lxc-create -t download -n template_centos7 -- --dist centos --release 6 --arch amd64
 
 Let's start the container, adding the following packages:
 
 ```bash
-lxc-start -n template_centos6
+lxc-start -n template_centos7
 
-lxc-attach -n template_centos6 -- <<_eof_
+lxc-attach -n template_centos7 -- <<_eof_
 	yum update -y
 	yum install openssh-server screen mlocate man vim-enhanced python-psycopg2 git sudo -y
 	/usr/sbin/makewhatis
@@ -24,11 +24,11 @@ _eof_
 Now we're ready to make our actual containers:
 
 ```bash
-lxc-stop -n template_centos6
+lxc-stop -n template_centos7
 
 for u in ansible pg1 pg2 pg3
 do
-	lxc-copy -n template_centos6 -N $u
+	lxc-copy -n template_centos7 -N $u
 done
 ```
 
@@ -63,7 +63,7 @@ ansible          RUNNING 0         -      10.0.3.160 -
 pg1              RUNNING 0         -      10.0.3.74  -    
 pg2              RUNNING 0         -      10.0.3.105 -    
 pg3              RUNNING 0         -      10.0.3.184 -    
-template_centos6 STOPPED 0         -      -          -   
+template_centos7 STOPPED 0         -      -          -   
 ```
 
 # Configuring our Ansible container
