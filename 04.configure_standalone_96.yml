@@ -5,9 +5,12 @@
  
   tasks:
     - name: create data cluster
-      command: service postgresql-9.6 initdb
+      command: /usr/pgsql-9.6/bin/postgresql96-setup initdb
+      ignore_errors: True
+      
  
-    - service:
+    - name: start PG
+      systemd:
         name: postgresql-9.6
         state: started
  
@@ -36,7 +39,7 @@
         block: |
           listen_addresses = '*'
           wal_level = hot_standby
-          checkpoint_segments = 10
+          #checkpoint_segments = 10
           max_wal_senders = 6
           wal_keep_segments = 10
           hot_standby = on
@@ -59,18 +62,10 @@
   remote_user: ansible
   become: yes
  
+  tasks:
     - name: enable and restart PG
       systemd:
         name: postgresql-9.6
         state: restarted
         enabled: True
-
-
-#  tasks:
-#    - service:
-#        name: postgresql-9.6
-#        state: restarted
-# 
-#    - name: configure init for startup on bootup
-#      shell: chkconfig --level 2345 postgresql-9.6 on
 ...

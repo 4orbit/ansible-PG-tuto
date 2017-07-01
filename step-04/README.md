@@ -15,7 +15,7 @@ The connection permissions between master and slaves are updated in **pg\_hba.co
 
 And here's our invocation. Notice we've typed out the replication password as an argument; not only is it secure, but now we add flexibility to our script:
 
-	ansible-playbook -i step-04/hosts.cfg 04.configure_standalone_94.yml --extra-vars "host=dbservers passwd=mypassword"
+	ansible-playbook -i step-04/hosts.cfg 04.configure_standalone_96.yml --extra-vars "host=dbservers passwd=mypassword"
 
 ``` yaml
 ---
@@ -25,9 +25,12 @@ And here's our invocation. Notice we've typed out the replication password as an
  
   tasks:
     - name: create data cluster
-      command: service postgresql-9.6 initdb
+      command: /usr/pgsql-9.6/bin/postgresql96-setup initdb
+      ignore_errors: True
+      
  
-    - service:
+    - name: start PG
+      systemd:
         name: postgresql-9.6
         state: started
  
@@ -56,7 +59,7 @@ And here's our invocation. Notice we've typed out the replication password as an
         block: |
           listen_addresses = '*'
           wal_level = hot_standby
-          checkpoint_segments = 10
+          #checkpoint_segments = 10
           max_wal_senders = 6
           wal_keep_segments = 10
           hot_standby = on
@@ -79,20 +82,12 @@ And here's our invocation. Notice we've typed out the replication password as an
   remote_user: ansible
   become: yes
  
+  tasks:
     - name: enable and restart PG
       systemd:
         name: postgresql-9.6
         state: restarted
         enabled: True
-
-
-#  tasks:
-#    - service:
-#        name: postgresql-9.6
-#        state: restarted
-# 
-#    - name: configure init for startup on bootup
-#      shell: chkconfig --level 2345 postgresql-9.6 on
 ...
 ```
 
