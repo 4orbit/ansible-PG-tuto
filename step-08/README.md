@@ -14,19 +14,19 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
  
   tasks:
     - service:
-        name: postgresql-9.4
-        state: stopped
- 
-    - service:
         name: postgresql-9.6
         state: stopped
  
+    - service:
+        name: postgresql-10
+        state: stopped
+ 
     - file:
-       path: /var/lib/pgsql/9.6/data/
+       path: /var/lib/pgsql/10/data/
        state: absent
  
     - file:
-       path:  /var/lib/pgsql/9.6/data/
+       path:  /var/lib/pgsql/10/data/
        owner: postgres
        group: postgres
        mode:  0700
@@ -39,10 +39,10 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
     - name: execute base backup
       shell: |
         export PGPASSWORD="{{ passwd }}" && \
-        /usr/pgsql-9.6/bin/pg_basebackup \
+        /usr/pgsql-10/bin/pg_basebackup \
             -h {{ master }} \
             -U replicant \
-            -D /var/lib/pgsql/9.6/data \
+            -D /var/lib/pgsql/10/data \
             -P -v --xlog-method=stream 2>&1
  
         exit 0
@@ -50,7 +50,7 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
     - name: add new configuration "recovery.conf"
       blockinfile:
         create: yes
-        dest: /var/lib/pgsql/9.6/data/recovery.conf
+        dest: /var/lib/pgsql/10/data/recovery.conf
         block: |
           standby_mode = 'on'
           primary_conninfo = 'user=replicant password={{ passwd }} host={{ master }} port=5432 sslmode=prefer'
@@ -61,7 +61,7 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
         create: yes
         dest: /var/lib/pgsql/.pgsql_profile
         block: |
-          export PGHOST=/tmp PAGER=less PGDATA=/var/lib/pgsql/9.6/data
+          export PGHOST=/tmp PAGER=less PGDATA=/var/lib/pgsql/10/data
  
 - hosts: "{{ slave }}"
   remote_user: ansible
@@ -69,7 +69,7 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
  
   tasks:
     - service:
-        name: postgresql-9.6
+        name: postgresql-10
         state: started
 ...
 
@@ -95,21 +95,21 @@ And see replication result^
 pg1 | SUCCESS | rc=0 >>
  s |               md5                
 ---+----------------------------------
- 1 | 2229966cd0e0b94e7a18cd9ca42b29a7
+ 1 | 222106cd0e0b94e7a18cd9ca42b29a7
  2 | 1a5c6c58f3a61f03ed288b6a1406b4a8
 (2 rows)
 
 pg2 | SUCCESS | rc=0 >>
  s |               md5                
 ---+----------------------------------
- 1 | 2229966cd0e0b94e7a18cd9ca42b29a7
+ 1 | 222106cd0e0b94e7a18cd9ca42b29a7
  2 | 1a5c6c58f3a61f03ed288b6a1406b4a8
 (2 rows)
 
 pg3 | SUCCESS | rc=0 >>
  s |               md5                
 ---+----------------------------------
- 1 | 2229966cd0e0b94e7a18cd9ca42b29a7
+ 1 | 222106cd0e0b94e7a18cd9ca42b29a7
  2 | 1a5c6c58f3a61f03ed288b6a1406b4a8
 (2 rows)
 

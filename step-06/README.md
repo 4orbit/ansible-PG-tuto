@@ -9,7 +9,7 @@ Test **pg2**
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg2
 Last login: Tue Jun 27 08:49:28 2017 from 10.0.3.160
 -bash-4.1$ psql
-psql (9.4.12)
+psql (9.6.12)
 Type "help" for help.
 
 postgres=# create table pg2_random as select s, md5(random()::text) from generate_Series(1,20) s;
@@ -29,7 +29,7 @@ Failover and promotion is super easy; just execute a single command against **pg
  
   tasks:
     - service:
-        name: postgresql-9.4
+        name: postgresql-9.6
         state: stopped
  
 - hosts: "{{ new_master }}"
@@ -37,7 +37,7 @@ Failover and promotion is super easy; just execute a single command against **pg
  
   tasks:
     - name: promote new master for data cluster
-      command:  /usr/pgsql-9.4/bin/pg_ctl -D /var/lib/pgsql/9.4/data/ promote
+      command:  /usr/pgsql-9.6/bin/pg_ctl -D /var/lib/pgsql/9.6/data/ promote
 ...
 ```
 
@@ -45,9 +45,9 @@ a) Go to new master **pg2** and try create table
 
 ```bash
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg2
-Last login: Tue Jun 27 09:47:03 2017 from 10.0.3.160
+Last login: Tue Jun 27 09.67:03 2017 from 10.0.3.160
 -bash-4.1$ psql
-psql (9.4.12)
+psql (9.6.12)
 Type "help" for help.
 
 postgres=# create table pg2_random as select s, md5(random()::text) from generate_Series(1,20) s;
@@ -69,12 +69,12 @@ postgres=# table pg2_random ;
  12 | a72baf0a4538ff9ac5fbea7fd770a80f
  13 | b9c3558e0533654a738f5645fd76971b
  14 | 5986f3cab0377536a82de31b9bfc918c
- 15 | 3b1dd927d77f9e42a4b594e29d0a65be
+ 15 | 3b1dd927d77f9.62a4b594e29d0a65be
  16 | e1d770edaa227a426215618422df04a9
  17 | 2b4087f738538d0bdb19ec68e328a478
  18 | 46963a43d98ceb5fd11dbaa2f6f7e5a7
  19 | 20bbff5bb0b16cbf09885746767cd509
- 20 | c5f63aa8795436b8aa9f9f250283db79
+ 20 | c5f63aa879.636b8aa9f9f250283db79
 (20 rows)
 ```
 
@@ -84,7 +84,7 @@ b) See same data on **pg3**
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg3
 Last login: Tue Jun 27 09:08:09 2017 from 10.0.3.160
 -bash-4.1$ psql 
-psql (9.4.12)
+psql (9.6.12)
 Type "help" for help.
 
 postgres=# table pg2_random ;
@@ -104,12 +104,12 @@ postgres=# table pg2_random ;
  12 | a72baf0a4538ff9ac5fbea7fd770a80f
  13 | b9c3558e0533654a738f5645fd76971b
  14 | 5986f3cab0377536a82de31b9bfc918c
- 15 | 3b1dd927d77f9e42a4b594e29d0a65be
+ 15 | 3b1dd927d77f9.62a4b594e29d0a65be
  16 | e1d770edaa227a426215618422df04a9
  17 | 2b4087f738538d0bdb19ec68e328a478
  18 | 46963a43d98ceb5fd11dbaa2f6f7e5a7
  19 | 20bbff5bb0b16cbf09885746767cd509
- 20 | c5f63aa8795436b8aa9f9f250283db79
+ 20 | c5f63aa879.636b8aa9f9f250283db79
 (20 rows)
 ```
 

@@ -5,7 +5,7 @@
 
   tasks:
     - service:
-        name: postgresql-9.4
+        name: postgresql-9.6
         state: stopped
 
 - hosts: "{{ new_master }"}
@@ -13,6 +13,6 @@
 
   tasks:
     - name: promote new master for data cluster
-      command:  /usr/pgsql-9.4/bin/pg_ctl -D /var/lib/pgsql/9.4/data/ promote
+      command:  /usr/pgsql-9.6/bin/pg_ctl -D /var/lib/pgsql/9.6/data/ promote
 ...
 

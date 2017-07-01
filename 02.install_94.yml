@@ -4,7 +4,7 @@
   become: yes
  
   tasks:
-    - name: install PostgreSQL version 9.4
+    - name: install PostgreSQL version 9.6
       yum:
         name: "{{ item }}"
         state: latest

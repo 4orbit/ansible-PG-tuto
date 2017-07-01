@@ -53,9 +53,9 @@ Don't stop here! By all means, follow up on the excellent online documentation a
 # Postgres references
 
 * [Red Hat Linux downloads](https://www.postgresql.org/download/linux/redhat/)
-* [PostgreSQL 9.4.12 documentation](https://www.postgresql.org/docs/9.4/static/index.html)
-* [PostgreSQL 9.6.3 documentation](https://www.postgresql.org/docs/9.6/static/index.html)
-* [PostgreSQL 9.6.3 Documentation: pg\_upgrade](https://www.postgresql.org/docs/9.6/static/pgupgrade.html)
+* [PostgreSQL 9.6.12 documentation](https://www.postgresql.org/docs/9.6/static/index.html)
+* [PostgreSQL 10.3 documentation](https://www.postgresql.org/docs/10/static/index.html)
+* [PostgreSQL 10.3 Documentation: pg\_upgrade](https://www.postgresql.org/docs/10/static/pgupgrade.html)
 
 
 # my notes\_tmp
@@ -85,12 +85,12 @@ SELECT 6
 pg3 | SUCCESS | rc=0 >>
  s |               md5                
 ---+----------------------------------
- 1 | 18cf0c4b0ebed942d84781dde9143615
- 2 | 5a22aecfb45fcf56534f5f8c59f39960
+ 1 | 18cf0c4b0ebed942d84781dde9.63615
+ 2 | 5a22aecfb45fcf56534f5f8c59f3100
  3 | 51cddc5fdab503fb016fe3bef819c825
  4 | 594295b7d4fc8d61563210313eaf6d40
  5 | 8685a0c812afbcdcfe607db57815e1cc
- 6 | f377a9c69f240563e41c1fff99e3c264
+ 6 | f377a109f240563e41c1fff99e3c264
 (6 rows)
 
 pg1 | FAILED | rc=2 >>
@@ -101,12 +101,12 @@ psql: could not connect to server: No such file or directory
 pg2 | SUCCESS | rc=0 >>
  s |               md5                
 ---+----------------------------------
- 1 | 18cf0c4b0ebed942d84781dde9143615
- 2 | 5a22aecfb45fcf56534f5f8c59f39960
+ 1 | 18cf0c4b0ebed942d84781dde9.63615
+ 2 | 5a22aecfb45fcf56534f5f8c59f3100
  3 | 51cddc5fdab503fb016fe3bef819c825
  4 | 594295b7d4fc8d61563210313eaf6d40
  5 | 8685a0c812afbcdcfe607db57815e1cc
- 6 | f377a9c69f240563e41c1fff99e3c264
+ 6 | f377a109f240563e41c1fff99e3c264
 (6 rows)
 
 [ansible@ansible ansible-PG-tuto]$ 

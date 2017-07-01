@@ -25,10 +25,10 @@ And here's our invocation. Notice we've typed out the replication password as an
  
   tasks:
     - name: create data cluster
-      command: service postgresql-9.4 initdb
+      command: service postgresql-9.6 initdb
  
     - service:
-        name: postgresql-9.4
+        name: postgresql-9.6
         state: started
  
 - hosts: "{{ host }}"
@@ -45,14 +45,14 @@ And here's our invocation. Notice we've typed out the replication password as an
  
     - name: add new configuration to "postgresql.conf"
       blockinfile:
-        dest: /var/lib/pgsql/9.4/data/postgresql.conf
+        dest: /var/lib/pgsql/9.6/data/postgresql.conf
         block: |
           include 'server.conf'
  
     - name: add new configuration to "server.conf"
       blockinfile:
         create: yes
-        dest: /var/lib/pgsql/9.4/data/server.conf
+        dest: /var/lib/pgsql/9.6/data/server.conf
         block: |
           listen_addresses = '*'
           wal_level = hot_standby
@@ -63,7 +63,7 @@ And here's our invocation. Notice we've typed out the replication password as an
  
     - name: add new configuration to "pg_hba.conf"
       blockinfile:
-        dest: /var/lib/pgsql/9.4/data/pg_hba.conf
+        dest: /var/lib/pgsql/9.6/data/pg_hba.conf
         block: |
           host    all             all             0.0.0.0/0                md5
           host    replication     replicant       0.0.0.0/0                md5
@@ -73,7 +73,7 @@ And here's our invocation. Notice we've typed out the replication password as an
         create: yes
         dest: /var/lib/pgsql/.pgsql_profile
         block: |
-          export PGHOST=/tmp PAGER=less PGDATA=/var/lib/pgsql/9.4/data
+          export PGHOST=/tmp PAGER=less PGDATA=/var/lib/pgsql/9.6/data
  
 - hosts: "{{ host }}"
   remote_user: ansible
@@ -81,11 +81,11 @@ And here's our invocation. Notice we've typed out the replication password as an
  
   tasks:
     - service:
-        name: postgresql-9.4
+        name: postgresql-9.6
         state: restarted
  
     - name: configure init for startup on bootup
-      shell: chkconfig --level 2345 postgresql-9.4 on
+      shell: chkconfig --level 2345 postgresql-9.6 on
 ...
 ```
 

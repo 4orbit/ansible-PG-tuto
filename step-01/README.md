@@ -1,7 +1,7 @@
-Add repos: PostgreSQL Versions 9.4 and 9.6
+Add repos: PostgreSQL Versions 9.6 and 10
 ================
 
-Playbook **01.install\_repo.yml** installs the **postgres.org** repository onto each **guest** host. Notice we're going to install two versions of Postgres—versions 9.4 and 9.6—which makes it possible to perform an inline upgrade:
+Playbook **01.install\_repo.yml** installs the **postgres.org** repository onto each **guest** host. Notice we're going to install two versions of Postgres—versions 9.6 and 10—which makes it possible to perform an inline upgrade:
 
 	ansible-playbook -i step-01/hosts.cfg 01.install_repo.yml
 
@@ -12,14 +12,14 @@ Playbook **01.install\_repo.yml** installs the **postgres.org** repository onto 
   become: yes
  
   tasks:
-    - name: install repo for PostgreSQL 9.4
-      yum:
-        name: https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-3.noarch.rpm
-        state: present
- 
     - name: install repo for PostgreSQL 9.6
       yum:
-        name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-6-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+        name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-6-x86_64/pgdg-centos94-9.6-3.noarch.rpm
+        state: present
+ 
+    - name: install repo for PostgreSQL 10
+      yum:
+        name: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos96-10-3.noarch.rpm
         state: present
 ...
 ```

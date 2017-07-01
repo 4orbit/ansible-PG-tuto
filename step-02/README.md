@@ -1,4 +1,4 @@
-Install Postgres packages, 9.4
+Install Postgres packages, 9.6
 ================
 
 With the repo configured, we can now install the **rpms**. Notice the use of variables and the loop **with\_items** in our playbook invocation:
@@ -12,7 +12,7 @@ With the repo configured, we can now install the **rpms**. Notice the use of var
   become: yes
  
   tasks:
-    - name: install PostgreSQL version 9.4
+    - name: install PostgreSQL version 9.6
       yum:
         name: "{{ item }}"
         state: latest

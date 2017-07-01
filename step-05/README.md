@@ -14,15 +14,15 @@ The previous script of preparing the server for standalone mode actually killed 
  
   tasks:
     - service:
-        name: postgresql-9.4
+        name: postgresql-9.6
         state: stopped
  
     - file:
-       path: /var/lib/pgsql/9.4/data/
+       path: /var/lib/pgsql/9.6/data/
        state: absent
  
     - file:
-       path:  /var/lib/pgsql/9.4/data/
+       path:  /var/lib/pgsql/9.6/data/
        owner: postgres
        group: postgres
        mode:  0700
@@ -33,12 +33,12 @@ The previous script of preparing the server for standalone mode actually killed 
  
   tasks:
     - name: execute base backup
-      shell: export PGPASSWORD="{{ passwd }}" && /usr/pgsql-9.4/bin/pg_basebackup -h {{ master }} -U replicant -D /var/lib/pgsql/9.4/data -P -v --xlog-method=stream 2>&1
+      shell: export PGPASSWORD="{{ passwd }}" && /usr/pgsql-9.6/bin/pg_basebackup -h {{ master }} -U replicant -D /var/lib/pgsql/9.6/data -P -v --xlog-method=stream 2>&1
  
     - name: add new configuration "recovery.conf"
       blockinfile:
         create: yes
-        dest: /var/lib/pgsql/9.4/data/recovery.conf
+        dest: /var/lib/pgsql/9.6/data/recovery.conf
         block: |
           standby_mode = 'on'
           primary_conninfo = 'user=replicant password={{ passwd }} host={{ master }} port=5432 sslmode=prefer'
@@ -50,7 +50,7 @@ The previous script of preparing the server for standalone mode actually killed 
  
   tasks:
     - service:
-        name: postgresql-9.4
+        name: postgresql-9.6
         state: started
 ...
 ```
@@ -62,7 +62,7 @@ a) on **pg1**
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg1
 Last login: Tue Jun 27 08:47:31 2017 from 10.0.3.160
 -bash-4.1$ psql
-psql (9.4.12)
+psql (9.6.12)
 Type "help" for help.
 
 postgres=# create table t_random as select s, md5(random()::text) from generate_Series(1,20) s;
@@ -105,7 +105,7 @@ b) on **pg3**
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg3
 Last login: Tue Jun 27 08:51:47 2017 from 10.0.3.160
 -bash-4.1$ psql 
-psql (9.4.12)
+psql (9.6.12)
 Type "help" for help.
 
 postgres=# table t_random ;
