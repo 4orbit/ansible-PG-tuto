@@ -79,13 +79,20 @@ And here's our invocation. Notice we've typed out the replication password as an
   remote_user: ansible
   become: yes
  
-  tasks:
-    - service:
+    - name: enable and restart PG
+      systemd:
         name: postgresql-9.6
         state: restarted
- 
-    - name: configure init for startup on bootup
-      shell: chkconfig --level 2345 postgresql-9.6 on
+        enabled: True
+
+
+#  tasks:
+#    - service:
+#        name: postgresql-9.6
+#        state: restarted
+# 
+#    - name: configure init for startup on bootup
+#      shell: chkconfig --level 2345 postgresql-9.6 on
 ...
 ```
 

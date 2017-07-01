@@ -5,8 +5,6 @@ Adding a public key is a practice I adopted years ago. It is a secure and easy w
 
 Here's our playbook, **03.install\_key.yml**:
 
-	ansible-playbook -i step-02/hosts.cfg 02.install_94.yml --extra-vars "host=dbservers"
-
 ``` yaml
 ---
 - hosts: dbservers
