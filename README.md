@@ -21,7 +21,7 @@ For the purposes of this article, we assume readers have some knowledge of both 
 - [Invoke failover](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-06)
 - [Upgrade servers from 9.4 to 9.6](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-07)
 - [Invoke failover](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-08)
-- [The end](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-99)
+- [Conclusion](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-99)
 
 
 ## Contributing
