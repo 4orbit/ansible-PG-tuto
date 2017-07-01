@@ -3,7 +3,7 @@ How to administrate a cluster of database servers on a developer workstation
 
 As root, I create my template container:
 
-	lxc-create -t download -n template_centos7 -- --dist centos --release 6 --arch amd64
+	lxc-create -t download -n template_centos7 -- --dist centos --release 7 --arch amd64
 
 Let's start the container, adding the following packages:
 
@@ -37,7 +37,7 @@ Let's prepare container *Ansible*:
 ```bash
 lxc-start -n ansible
 lxc-attach -n ansible <<_eof_
-	rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 	yum install ansible -y
 	/usr/sbin/makewhatis
 	/usr/bin/updatedb
@@ -74,6 +74,9 @@ Now let's get to work and create our playbooks on *guest* host *Ansible*. Ansibl
 ## Cloning the tutorial
 
 ```bash
+lxc-attach -n ansible
+su - ansible
+
 git clone https://github.com/4orbit/ansible-PG-tuto.git
 cd ansible-PG-tuto
 
