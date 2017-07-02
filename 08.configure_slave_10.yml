@@ -34,7 +34,7 @@
             -h {{ master }} \
             -U replicant \
             -D /var/lib/pgsql/10/data \
-            -P -v --xlog-method=stream 2>&1
+            -P -v --wal-method=stream 2>&1
  
         exit 0
  

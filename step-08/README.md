@@ -43,7 +43,7 @@ This script is virtually the same as script **05.configure\_slave\_96.yml**. You
             -h {{ master }} \
             -U replicant \
             -D /var/lib/pgsql/10/data \
-            -P -v --xlog-method=stream 2>&1
+            -P -v --wal-method=stream 2>&1
  
         exit 0
  
