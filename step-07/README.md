@@ -59,7 +59,6 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
       with_items:
         - postgresql10-server
         - postgresql10-contrib
-        - pg_repack10
  
     - name: disable init for 9.6
       systemd:
