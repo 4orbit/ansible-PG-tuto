@@ -40,7 +40,7 @@ pg2 | SUCCESS | rc=0 >>
 
 Note: As there's more than one way to skin a cat, so too are there many ways of writing this playbook; it's up to you.
 
-```yanl
+```yaml
 ---
 - hosts: all
   remote_user: ansible
@@ -66,6 +66,10 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
         state: stopped
         enabled: False
  
+    - name: create data cluster
+      command: /usr/pgsql-10/bin/postgresql-10-setup initdb
+      ignore_errors: True
+      
     - name: enable init for 10
       systemd: 
         name: postgresql-10

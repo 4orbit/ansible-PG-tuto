@@ -23,6 +23,10 @@
         state: stopped
         enabled: False
  
+    - name: create data cluster
+      command: /usr/pgsql-10/bin/postgresql-10-setup initdb
+      ignore_errors: True
+      
     - name: enable init for 10
       systemd: 
         name: postgresql-10
