@@ -90,7 +90,7 @@ SELECT 2
 ```
 And see replication result^
 ```bash
-[ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'table pg96a_random'"  -u postgres
+[ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'table pg10a_random'"  -u postgres
 pg1 | SUCCESS | rc=0 >>
  s |               md5                
 ---+----------------------------------
