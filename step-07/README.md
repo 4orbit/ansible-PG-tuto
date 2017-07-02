@@ -63,7 +63,7 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
     - name: disable init for 9.6
       systemd:
         name: postgresql-9.6
-        state: stop
+        state: stopped
         enabled: False
  
     - name: enable init for 10
@@ -80,7 +80,7 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
     - name: stop PG 10
       systemd: 
         name: postgresql-10
-        state: stop
+        state: stopped
  
     - file:
         path: /var/lib/pgsql/10/data/
