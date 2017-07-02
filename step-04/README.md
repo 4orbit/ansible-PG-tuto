@@ -59,7 +59,7 @@ And here's our invocation. Notice we've typed out the replication password as an
         block: |
           listen_addresses = '*'
           wal_level = hot_standby
-          #checkpoint_segments = 10
+          max_wal_size = 480
           max_wal_senders = 6
           wal_keep_segments = 10
           hot_standby = on
