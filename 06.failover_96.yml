@@ -4,11 +4,11 @@
   become: yes
 
   tasks:
-    - service:
+    - systemd:
         name: postgresql-9.6
         state: stopped
 
-- hosts: "{{ new_master }"}
+- hosts: "{{ new_master }}"
   remote_user: postgres
 
   tasks:
