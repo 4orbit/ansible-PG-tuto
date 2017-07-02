@@ -14,24 +14,31 @@
         name: "{{ item }}"
         state: latest
       with_items:
-        - postgresql96-server
-        - postgresql96-contrib
-        - pg_repack96
+        - postgresql10-server
+        - postgresql10-contrib
+        - pg_repack10
  
     - name: disable init for 9.6
-      shell: chkconfig --level 2345 postgresql-9.6 off
+      systemd:
+        name: postgresql-9.6
+        state: stop
+        enabled: False
  
     - name: enable init for 10
-      shell: chkconfig --level 2345 postgresql-10 on
+      systemd: 
+        name: postgresql-10
+        state: start
+        enabled: True
  
 - hosts: pg1
   remote_user: ansible
   become: yes
  
   tasks:
-    - service:
+    - name: stop PG 10
+      systemd: 
         name: postgresql-10
-        state: stopped
+        state: stop
  
     - file:
         path: /var/lib/pgsql/10/data/
@@ -70,7 +77,7 @@
           listen_addresses = '*'
           wal_level = hot_standby
           max_wal_senders = 6
-          wal_keep_segments = 10
+          max_wal_size = 480
           hot_standby = on
  
     - name: add new configuration to "pg_hba.conf"
@@ -92,8 +99,9 @@
   become: yes
  
   tasks:
-    - service:
+    - name: start PG 10
+      systemd: 
         name: postgresql-10
-        state: started
+        state: start
 ...
 

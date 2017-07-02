@@ -3,7 +3,7 @@ Upgrade servers from 9.6 to 10
 
 Upgrading from one version of Postgres to another at the best of times can be tricky. But a correctly configured playbook can make even this a straightforward proposition:
 
-	ansible-playbook -i step-07/hosts.cfg 07.pg1_upgrade_94-96.yml
+	ansible-playbook -i step-07/hosts.cfg 07.pg1_upgrade_96-10.yml
 
 In this example, we upgrade **pg1**, which was shut down in our failover example, by executing the following steps:
 
@@ -49,7 +49,7 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
   tasks:
     - name: install repo for PostgreSQL 10
       yum:
-        name: https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos96-10-3.noarch.rpm
+        name: https://download.postgresql.org/pub/repos/yum/testing/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm
         state: present
  
     - name: install PostgreSQL version 10
@@ -57,24 +57,31 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
         name: "{{ item }}"
         state: latest
       with_items:
-        - postgresql96-server
-        - postgresql96-contrib
-        - pg_repack96
+        - postgresql10-server
+        - postgresql10-contrib
+        - pg_repack10
  
     - name: disable init for 9.6
-      shell: chkconfig --level 2345 postgresql-9.6 off
+      systemd:
+        name: postgresql-9.6
+        state: stop
+        enabled: False
  
     - name: enable init for 10
-      shell: chkconfig --level 2345 postgresql-10 on
+      systemd: 
+        name: postgresql-10
+        state: start
+        enabled: True
  
 - hosts: pg1
   remote_user: ansible
   become: yes
  
   tasks:
-    - service:
+    - name: stop PG 10
+      systemd: 
         name: postgresql-10
-        state: stopped
+        state: stop
  
     - file:
         path: /var/lib/pgsql/10/data/
@@ -113,7 +120,7 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
           listen_addresses = '*'
           wal_level = hot_standby
           max_wal_senders = 6
-          wal_keep_segments = 10
+          max_wal_size = 480
           hot_standby = on
  
     - name: add new configuration to "pg_hba.conf"
@@ -135,9 +142,10 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
   become: yes
  
   tasks:
-    - service:
+    - name: start PG 10
+      systemd: 
         name: postgresql-10
-        state: started
+        state: start
 ...
 
 ```

@@ -44,8 +44,8 @@ a) Go to new master **pg2** and try create table
 ```bash
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg2
 Last login: Tue Jun 27 09.67:03 2017 from 10.0.3.160
--bash-4.1$ psql
-psql (9.6.12)
+-bash-4.2$ psql
+psql (9.6.3)
 Type "help" for help.
 
 postgres=# create table pg2_random as select s, md5(random()::text) from generate_Series(1,20) s;
@@ -81,8 +81,8 @@ b) See same data on **pg3**
 ```bash
 [ansible@ansible ansible-PG-tuto]$ ssh postgres@pg3
 Last login: Tue Jun 27 09:08:09 2017 from 10.0.3.160
--bash-4.1$ psql 
-psql (9.6.12)
+-bash-4.2$ psql 
+psql (9.6.3)
 Type "help" for help.
 
 postgres=# table pg2_random ;
