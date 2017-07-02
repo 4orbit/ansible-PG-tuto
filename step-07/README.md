@@ -63,13 +63,11 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
     - name: disable init for 9.6
       systemd:
         name: postgresql-9.6
-        state: stopped
         enabled: False
  
     - name: enable init for 10
       systemd: 
         name: postgresql-10
-        state: stopped
         enabled: True
 
 - hosts: pg1

@@ -4,11 +4,11 @@
   become: yes
  
   tasks:
-    - service:
+    - systemd:
         name: postgresql-9.6
         state: stopped
  
-    - service:
+    - systemd:
         name: postgresql-10
         state: stopped
  

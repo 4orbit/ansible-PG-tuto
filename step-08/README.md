@@ -1,10 +1,10 @@
 Invoke failover
 ================
 
-This script is virtually the same as script **05.configure\_slave\_94.yml**. You might even want to edit it, thus eliminating one script from your collection:
+This script is virtually the same as script **05.configure\_slave\_96.yml**. You might even want to edit it, thus eliminating one script from your collection:
 
-    ansible-playbook -i step-08/hosts.cfg 08.configure_slave_96.yml --extra-vars "master=pg1 slave=pg2 passwd=mypassword"
-    ansible-playbook -i step-08/hosts.cfg 08.configure_slave_96.yml --extra-vars "master=pg2 slave=pg3 passwd=mypassword"
+    ansible-playbook -i step-08/hosts.cfg 08.configure_slave_10.yml --extra-vars "master=pg1 slave=pg2 passwd=mypassword"
+    ansible-playbook -i step-08/hosts.cfg 08.configure_slave_10.yml --extra-vars "master=pg2 slave=pg3 passwd=mypassword"
 
 ```yaml
 ---
@@ -13,11 +13,11 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
   become: yes
  
   tasks:
-    - service:
+    - systemd:
         name: postgresql-9.6
         state: stopped
  
-    - service:
+    - systemd:
         name: postgresql-10
         state: stopped
  
@@ -72,13 +72,12 @@ This script is virtually the same as script **05.configure\_slave\_94.yml**. You
         name: postgresql-10
         state: started
 ...
-
 ```
 Test our cluster install with next command:
 
 
 ```bash
-[ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'create table pg96a_random as select s, md5(random()::text) from generate_Series(1,2) s;'"  -u postgres
+[ansible@ansible ansible-PG-tuto]$ ansible -i step-02/hosts.cfg all -m shell -a "psql -c 'create table pg10a_random as select s, md5(random()::text) from generate_Series(1,2) s;'"  -u postgres
 pg2 | FAILED | rc=1 >>
 ERROR:  cannot execute CREATE TABLE AS in a read-only transaction
 
