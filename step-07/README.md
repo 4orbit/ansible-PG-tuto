@@ -66,16 +66,12 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
         state: stopped
         enabled: False
  
-    - name: create data cluster
-      command: /usr/pgsql-10/bin/postgresql-10-setup initdb
-      ignore_errors: True
-      
     - name: enable init for 10
       systemd: 
         name: postgresql-10
-        state: started
+        state: stopped
         enabled: True
- 
+
 - hosts: pg1
   remote_user: ansible
   become: yes
@@ -85,13 +81,15 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
       systemd: 
         name: postgresql-10
         state: stopped
+        enabled: True
  
     - file:
         path: /var/lib/pgsql/10/data/
         state: absent
  
     - name: create data cluster
-      command: service postgresql-10 initdb
+      command: /usr/pgsql-10/bin/postgresql-10-setup initdb
+      ignore_errors: True
  
 - hosts: pg1
   remote_user: postgres
