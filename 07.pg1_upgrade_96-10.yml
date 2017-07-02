@@ -26,7 +26,7 @@
     - name: enable init for 10
       systemd: 
         name: postgresql-10
-        state: start
+        state: started
         enabled: True
  
 - hosts: pg1
@@ -101,6 +101,6 @@
     - name: start PG 10
       systemd: 
         name: postgresql-10
-        state: start
+        state: started
 ...
 

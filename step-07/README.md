@@ -69,7 +69,7 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
     - name: enable init for 10
       systemd: 
         name: postgresql-10
-        state: start
+        state: started
         enabled: True
  
 - hosts: pg1
@@ -144,7 +144,7 @@ Note: As there's more than one way to skin a cat, so too are there many ways of 
     - name: start PG 10
       systemd: 
         name: postgresql-10
-        state: start
+        state: started
 ...
 
 ```
