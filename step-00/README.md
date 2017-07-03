@@ -13,7 +13,6 @@ lxc-start -n template_centos7
 lxc-attach -n template_centos7 -- <<_eof_
 	yum update -y
 	yum install openssh-server screen mlocate man vim-enhanced python-psycopg2 git sudo -y
-	/usr/sbin/makewhatis
 	/usr/bin/updatedb
 	useradd ansible
 	echo ansible | passwd --stdin ansible
@@ -32,27 +31,18 @@ do
 done
 ```
 
-Let's prepare container *Ansible*:
-
-```bash
-lxc-start -n ansible
-lxc-attach -n ansible <<_eof_
-	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-	yum install ansible -y
-	/usr/sbin/makewhatis
-	/usr/bin/updatedb
-	su -c "ssh-keygen -t rsa -N '' -f /home/ansible/.ssh/id_rsa" ansible
-_eof_
-```
-
 Let's turn everything on:
 
+PG servers^
 ```bash
 for u in $(seq 3)
 do
 	lxc-start -n pg$u
 done
 ```
+and ansible:
+
+   lxc-start -n ansible
 
 And see what our environment looks like:
 
@@ -64,6 +54,17 @@ pg1              RUNNING 0         -      10.0.3.74  -
 pg2              RUNNING 0         -      10.0.3.105 -    
 pg3              RUNNING 0         -      10.0.3.184 -    
 template_centos7 STOPPED 0         -      -          -   
+```
+
+Let's prepare container *Ansible*:
+
+```bash
+lxc-attach -n ansible <<_eof_
+	rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+	yum install ansible -y
+	/usr/bin/updatedb
+	su -c "ssh-keygen -t rsa -N '' -f /home/ansible/.ssh/id_rsa" ansible
+_eof_
 ```
 
 # Configuring our Ansible container
@@ -93,6 +94,11 @@ pg3 ansible_ssh_pass=ansible ansible_sudo_pass=ansible
 	ansible -i step-00/hosts.cfg -m ping all
 
 
+If not whant add accept all ssh key manyaly. Run command like this:
+	
+	ANSIBLE_HOST_KEY_CHECKING=false ansible -i step-00/hosts.cfg -m ping all
+
+
 Here's the output:
 
 ```bash
@@ -112,11 +118,7 @@ pg1 | SUCCESS => {
 
 # If ssh to slow
 
-Add string at end of /etc/ssh/ssh_conf
-
-	AddressFamily inet
-
-Аdd string at ent of /etc/ssh/sshd_conf
+Аdd string at ent of **/etc/ssh/sshd\_conf** on pgX servers
 
 	UseDNS no
 
@@ -125,9 +127,8 @@ and set
 	GSSAPIAuthentication no
 	#	GSSAPIAuthentication yes
 
-If not whant add accept all ssh key manyaly. Run command like this:
-	
-	ANSIBLE_HOST_KEY_CHECKING=false ansible -i step-00/hosts.cfg -m ping all
+Add string at end of **/etc/ssh/ssh\_conf** on ansible server
 
+	AddressFamily inet
 
 Now head to next step in directory [step-01](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-01).
