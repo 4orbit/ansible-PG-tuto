@@ -1,7 +1,7 @@
 Add repos: PostgreSQL Versions 9.6 and 10
 ================
 
-Playbook **01.install\_repo.yml** installs the **postgres.org** repository onto each **guest** host. Notice we're going to install two versions of Postgres—versions 9.6 and 10—which makes it possible to perform an inline upgrade:
+Playbook **01.install\_repo.yml** installs the **postgres.org** repository onto each **guest** host. Notice we're going to install later two versions of Postgres versions 9.6 and 10 which makes it possible to perform an inline upgrade:
 
 	ansible-playbook -i step-01/hosts.cfg 01.install_repo.yml
 
