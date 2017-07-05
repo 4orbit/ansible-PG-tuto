@@ -1,0 +1,24 @@
+vim londiste-demo.sh 
+./londiste-demo.sh 
+grep ^[a-z] 9.6/data/pg_hba.conf 
+vim  9.6/data/pg_hba.conf 
+systemctl status postgresql-9.6.service
+systemctl restart postgresql-9.6.service
+londiste3 master.ini create-root master 'user=postgres host=127.0.0.1
+dbname=postgres'
+londiste3 master.ini create-root master 'user=postgres host=127.0.0.1
+dbname=postgres'
+londiste3 -d master.ini worker
+less londiste-demo.sh 
+pg_dump -s -U postgres postgres | less 
+psql -c "select count(*) from mytable" postgres postgres
+psql -c "select * from mytable where id = 1" londiste postgres
+psql -c "update mytable set first_name = 'Richard', last_name = 'Yen' where id
+= 1" postgres postgres
+psql -c "select * from mytable where id = 1" londiste postgres
+londiste3 slave.ini status
+londiste3 londiste-config/slave.ini status
+cd londiste-config/
+londiste3 slave.ini status
+londiste3 master.ini status
+

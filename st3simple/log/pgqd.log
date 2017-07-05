@@ -1,0 +1,215 @@
+2017-07-04 11:42:07.271 17599 LOG Starting pgqd 3.2.6
+2017-07-04 11:42:07.272 17601 LOG auto-detecting dbs ...
+2017-07-04 11:42:07.293 17601 LOG postgres: pgq version ok: 3.2.6
+2017-07-04 11:42:07.294 17601 LOG londiste: pgq version ok: 3.2.6
+2017-07-04 11:42:37.273 17601 LOG {ticks: 60, maint: 2, retry: 0}
+2017-07-04 11:43:07.274 17601 LOG {ticks: 60, maint: 0, retry: 0}
+2017-07-04 11:43:37.275 17601 LOG {ticks: 60, maint: 0, retry: 0}
+2017-07-04 11:44:07.276 17601 LOG {ticks: 60, maint: 0, retry: 0}
+2017-07-04 11:44:07.305 17601 LOG l3simple_db1: pgq version ok: 3.2.6
+2017-07-04 11:44:37.277 17601 LOG {ticks: 90, maint: 3, retry: 0}
+2017-07-04 11:45:07.278 17601 LOG {ticks: 90, maint: 0, retry: 0}
+2017-07-04 11:45:37.279 17601 LOG {ticks: 90, maint: 0, retry: 0}
+2017-07-04 11:46:07.279 17601 LOG {ticks: 90, maint: 0, retry: 0}
+2017-07-04 11:46:07.306 17601 LOG l3simple_db2: pgq version ok: 3.2.6
+2017-07-04 11:46:37.281 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 11:47:07.281 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:47:37.282 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:48:07.282 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:48:37.283 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 11:49:07.284 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 11:49:37.285 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:50:07.285 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:50:37.286 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 11:51:07.287 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:51:37.287 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:52:07.288 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:52:37.289 17601 LOG {ticks: 119, maint: 4, retry: 0}
+2017-07-04 11:53:07.290 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:53:37.290 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:54:07.291 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:54:37.291 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 11:55:07.292 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:55:37.293 17601 LOG {ticks: 118, maint: 0, retry: 0}
+2017-07-04 11:56:07.294 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:56:37.294 17601 LOG {ticks: 119, maint: 4, retry: 0}
+2017-07-04 11:57:07.294 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:57:37.295 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 11:58:07.296 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 11:58:37.297 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 11:59:07.298 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 11:59:37.299 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:00:07.300 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:00:37.300 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:01:07.301 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:01:37.303 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:02:07.303 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:02:37.305 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:03:07.305 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:03:37.306 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:04:07.307 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:04:37.307 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:05:07.308 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:05:37.308 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:06:07.310 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:06:37.311 17601 LOG {ticks: 119, maint: 4, retry: 0}
+2017-07-04 12:07:07.311 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:07:37.312 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:08:07.313 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:08:37.313 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:09:07.314 17601 LOG {ticks: 118, maint: 0, retry: 0}
+2017-07-04 12:09:37.315 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:10:07.316 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:10:37.317 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:11:07.318 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:11:37.319 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:12:07.319 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:12:37.320 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:13:07.320 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:13:37.321 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:14:07.322 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:14:37.323 17601 LOG {ticks: 119, maint: 4, retry: 0}
+2017-07-04 12:15:07.324 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:15:37.325 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:16:07.326 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:16:37.327 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:17:07.328 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:17:37.329 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:18:07.329 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:18:37.330 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:19:07.331 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:19:37.332 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:20:07.333 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:20:37.334 17601 LOG {ticks: 118, maint: 4, retry: 0}
+2017-07-04 12:21:07.335 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:21:37.335 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:22:07.336 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:22:37.336 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:23:07.337 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:23:37.339 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:24:07.340 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:24:37.341 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:25:07.342 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:25:37.343 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:26:07.343 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:26:37.344 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:27:07.345 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:27:37.346 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:28:07.346 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:28:37.347 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:29:07.348 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:29:37.349 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:30:07.350 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:30:37.351 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:31:07.352 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:31:37.353 17601 LOG {ticks: 118, maint: 0, retry: 0}
+2017-07-04 12:32:07.354 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:32:37.356 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:33:07.357 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:33:37.358 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:34:07.359 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:34:37.360 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:35:07.361 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:35:37.361 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:36:07.362 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:36:37.362 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:37:07.364 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:37:37.364 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:38:07.365 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:38:37.367 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:39:07.368 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:39:37.369 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:40:07.369 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:40:37.370 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:41:07.370 17601 LOG {ticks: 117, maint: 0, retry: 0}
+2017-07-04 12:41:37.371 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:42:07.372 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:42:08.497 17601 LOG londiste: pgq version ok: 3.2.6
+2017-07-04 12:42:08.530 17601 LOG postgres: pgq version ok: 3.2.6
+2017-07-04 12:42:37.373 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:43:07.374 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:43:37.375 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:44:07.375 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:44:08.309 17601 LOG l3simple_db1: pgq version ok: 3.2.6
+2017-07-04 12:44:37.376 17601 LOG {ticks: 119, maint: 4, retry: 0}
+2017-07-04 12:45:07.377 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:45:37.377 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:46:07.378 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:46:08.862 17601 LOG l3simple_db2: pgq version ok: 3.2.6
+2017-07-04 12:46:37.379 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:47:07.381 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:47:37.381 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:48:07.382 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:48:37.383 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:49:07.383 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:49:37.383 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:50:07.384 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:50:37.385 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:51:07.386 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:51:37.386 17601 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 12:52:07.388 17601 LOG {ticks: 118, maint: 0, retry: 0}
+2017-07-04 12:52:37.389 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:53:07.390 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:53:37.391 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:54:07.392 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:54:37.394 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:55:07.395 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:55:37.396 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:56:07.396 17601 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 12:56:37.397 17601 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 12:56:47.887 17601 LOG Got SIGTERM, fast exit
+2017-07-04 13:00:14.347 19123 LOG Starting pgqd 3.2.6
+2017-07-04 13:00:14.347 19123 FATAL @../../lib/usual/daemon.c:137 in function write_pidfile(): Cannot write pidfile: 'st3simple/ppid/pgqd.pid': No such file or directory [2]
+2017-07-04 13:01:02.763 19143 LOG Starting pgqd 3.2.6
+2017-07-04 13:01:02.764 19145 LOG auto-detecting dbs ...
+2017-07-04 13:01:02.768 19145 LOG postgres: pgq version ok: 3.2.6
+2017-07-04 13:01:02.768 19145 LOG londiste: pgq version ok: 3.2.6
+2017-07-04 13:01:02.769 19145 LOG l3simple_db1: pgq version ok: 3.2.6
+2017-07-04 13:01:02.773 19145 LOG l3simple_db2: pgq version ok: 3.2.6
+2017-07-04 13:01:32.765 19145 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:01:48.206 19145 LOG Got SIGTERM, fast exit
+2017-07-04 13:18:25.736 19335 LOG Starting pgqd 3.2.6
+2017-07-04 13:18:25.738 19337 LOG auto-detecting dbs ...
+2017-07-04 13:18:25.748 19337 LOG londiste: pgq version ok: 3.2.6
+2017-07-04 13:18:25.749 19337 LOG l3simple_db1: pgq version ok: 3.2.6
+2017-07-04 13:18:25.752 19337 LOG postgres: pgq version ok: 3.2.6
+2017-07-04 13:18:25.752 19337 LOG l3simple_db2: pgq version ok: 3.2.6
+2017-07-04 13:18:55.739 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:19:25.740 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:19:55.741 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:20:25.743 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:20:55.744 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:21:25.745 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:21:55.746 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:22:25.747 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:22:55.748 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:23:25.748 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:23:55.749 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:24:25.750 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:24:55.751 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:25:25.751 19337 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 13:25:55.751 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:26:25.752 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:26:55.753 19337 LOG {ticks: 119, maint: 4, retry: 0}
+2017-07-04 13:27:25.754 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:27:55.755 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:28:25.756 19337 LOG {ticks: 118, maint: 0, retry: 0}
+2017-07-04 13:28:55.757 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:29:25.758 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:29:55.759 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:30:25.760 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:30:55.761 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:31:25.762 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:31:55.763 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:32:25.764 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:32:55.764 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:33:25.765 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:33:55.765 19337 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 13:34:25.766 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:34:55.767 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:35:25.768 19337 LOG {ticks: 119, maint: 0, retry: 0}
+2017-07-04 13:35:55.769 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:36:25.769 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:36:55.770 19337 LOG {ticks: 120, maint: 4, retry: 0}
+2017-07-04 13:37:25.771 19337 LOG {ticks: 120, maint: 0, retry: 0}
+2017-07-04 13:37:55.772 19337 LOG {ticks: 120, maint: 0, retry: 0}

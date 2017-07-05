@@ -1,0 +1,591 @@
+2017-07-04 11:45:30,700 17661 WARNING No host= in public connect string, bad idea
+2017-07-04 11:45:30,711 17661 INFO plpgsql is installed
+2017-07-04 11:45:30,712 17661 INFO Installing pgq
+2017-07-04 11:45:30,712 17661 INFO   Reading from /usr/share/skytools3/pgq.sql
+2017-07-04 11:45:31,461 17661 INFO pgq.get_batch_cursor is installed
+2017-07-04 11:45:31,462 17661 INFO Installing pgq_ext
+2017-07-04 11:45:31,462 17661 INFO   Reading from /usr/share/skytools3/pgq_ext.sql
+2017-07-04 11:45:31,854 17661 INFO Installing pgq_node
+2017-07-04 11:45:31,854 17661 INFO   Reading from /usr/share/skytools3/pgq_node.sql
+2017-07-04 11:45:32,233 17661 INFO Installing londiste
+2017-07-04 11:45:32,234 17661 INFO   Reading from /usr/share/skytools3/londiste.sql
+2017-07-04 11:45:32,647 17661 INFO londiste.global_add_table is installed
+2017-07-04 11:45:32,677 17661 INFO Initializing node
+2017-07-04 11:45:32,694 17661 INFO Location registered
+2017-07-04 11:45:32,699 17661 INFO Location registered
+2017-07-04 11:45:32,708 17661 INFO Subscriber registered: node2
+2017-07-04 11:45:32,714 17661 INFO Location registered
+2017-07-04 11:45:32,722 17661 INFO Location registered
+2017-07-04 11:45:32,732 17661 INFO Node "node2" initialized for queue "replika" with type "leaf"
+2017-07-04 11:45:32,740 17661 INFO Done
+2017-07-04 11:46:05,662 17673 INFO Consumer uptodate = 1
+2017-07-04 11:46:05,715 17673 INFO pgq.maint_operations is installed
+2017-07-04 11:46:05,731 17673 INFO {count: 1, duration: 0.0448, idle: 0.0315}
+2017-07-04 11:46:05,756 17673 INFO {count: 2, duration: 0.0238, idle: 0.0012}
+2017-07-04 11:46:33,922 17673 INFO {count: 0, duration: 0.0273}
+2017-07-04 11:47:34,214 17673 INFO {count: 0, duration: 0.0222}
+2017-07-04 11:48:34,520 17673 INFO {count: 0, duration: 0.046}
+2017-07-04 11:49:32,836 17673 INFO {count: 1, duration: 0.046, idle: 207.0342}
+2017-07-04 11:50:09,021 17673 INFO {count: 1, duration: 0.02, idle: 36.1648}
+2017-07-04 11:51:08,296 17673 INFO {count: 0, duration: 0.0285}
+2017-07-04 11:51:16,371 17673 INFO {count: 4, duration: 0.0356, idle: 67.3144}
+2017-07-04 11:51:33,470 17673 INFO {count: 0, duration: 0.0218}
+2017-07-04 11:51:41,799 17790 INFO Table added: public.pgbench_accounts
+2017-07-04 11:51:41,807 17790 INFO Table added: public.pgbench_branches
+2017-07-04 11:51:41,823 17790 INFO Table added: public.pgbench_history
+2017-07-04 11:51:41,845 17790 INFO Table added: public.pgbench_tellers
+2017-07-04 11:52:08,649 17673 INFO Dropping fkey: pgbench_accounts_branches_fk
+2017-07-04 11:52:08,662 17673 INFO Dropping fkey: pgbench_history_accounts_fk
+2017-07-04 11:52:08,671 17673 INFO storing state of public.pgbench_accounts: copy:0 new_state:in-copy
+2017-07-04 11:52:08,679 17673 INFO Table public.pgbench_accounts status changed to 'in-copy'
+2017-07-04 11:52:08,679 17673 INFO Launching copy process
+2017-07-04 11:52:08,769 17825 INFO Using 'node1' as source node
+2017-07-04 11:52:08,774 17825 INFO Registering consumer on source queue
+2017-07-04 11:52:08,851 17825 INFO Consumer st3_l3simple_db2.copy.public.pgbench_accounts registered on queue replika
+2017-07-04 11:52:08,857 17825 INFO Consumer uptodate = 1
+2017-07-04 11:52:11,796 17673 INFO {count: 1, duration: 3.1699, idle: 52.2556}
+2017-07-04 11:53:09,088 17673 INFO {count: 0, duration: 0.0299}
+2017-07-04 11:53:09,181 17825 INFO pgq.maint_operations is installed
+2017-07-04 11:53:09,190 17825 INFO Starting full copy of public.pgbench_accounts
+2017-07-04 11:53:09,228 17825 INFO Dropping pgbench_accounts_pkey
+2017-07-04 11:53:09,230 17825 INFO public.pgbench_accounts: truncating
+2017-07-04 11:53:09,231 17825 INFO public.pgbench_accounts: start copy
+2017-07-04 11:53:10,655 17825 INFO public.pgbench_accounts: copy finished: 19132209 bytes, 200000 rows
+2017-07-04 11:53:10,656 17825 INFO storing state of public.pgbench_accounts: copy:1 new_state:catching-up
+2017-07-04 11:53:10,657 17825 INFO Creating pgbench_accounts_pkey
+2017-07-04 11:53:12,140 17673 INFO {count: 0, duration: 0.0343}
+2017-07-04 11:53:14,090 17825 INFO {count: 0, duration: 4.9195}
+2017-07-04 11:53:14,124 17825 INFO {count: 0, duration: 0.0304}
+2017-07-04 11:53:19,160 17825 INFO storing state of public.pgbench_accounts: copy:1 new_state:wanna-sync:16
+2017-07-04 11:53:19,165 17825 INFO Table public.pgbench_accounts status changed to 'wanna-sync:16'
+2017-07-04 11:53:19,184 17673 INFO storing state of public.pgbench_accounts: copy:0 new_state:do-sync:16
+2017-07-04 11:53:19,190 17673 INFO Table public.pgbench_accounts status changed to 'do-sync:16'
+2017-07-04 11:53:22,170 17825 INFO storing state of public.pgbench_accounts: copy:1 new_state:ok
+2017-07-04 11:53:22,182 17825 INFO Table public.pgbench_accounts status changed to 'ok'
+2017-07-04 11:53:22,184 17825 INFO Unregistering consumer from source queue
+2017-07-04 11:53:22,200 17825 INFO Consumer st3_l3simple_db2.copy.public.pgbench_accounts unregistered from replika
+2017-07-04 11:53:22,201 17673 INFO Dropping fkey: pgbench_history_branches_fk
+2017-07-04 11:53:22,207 17825 INFO got SystemExit(0), exiting
+2017-07-04 11:53:22,215 17673 INFO Dropping fkey: pgbench_tellers_branches_fk
+2017-07-04 11:53:22,223 17673 INFO storing state of public.pgbench_branches: copy:0 new_state:in-copy
+2017-07-04 11:53:22,232 17673 INFO Table public.pgbench_branches status changed to 'in-copy'
+2017-07-04 11:53:22,232 17673 INFO Launching copy process
+2017-07-04 11:53:22,288 17855 INFO Using 'node1' as source node
+2017-07-04 11:53:22,294 17855 INFO Registering consumer on source queue
+2017-07-04 11:53:22,300 17855 INFO Consumer st3_l3simple_db2.copy.public.pgbench_branches registered on queue replika
+2017-07-04 11:53:22,310 17855 INFO Consumer uptodate = 1
+2017-07-04 11:53:25,307 17673 INFO {count: 0, duration: 6.1313}
+2017-07-04 11:53:34,382 17673 INFO {count: 0, duration: 0.0315}
+2017-07-04 11:53:34,409 17855 INFO pgq.maint_operations is installed
+2017-07-04 11:53:34,416 17855 INFO Starting full copy of public.pgbench_branches
+2017-07-04 11:53:34,449 17855 INFO Dropping pgbench_branches_pkey
+2017-07-04 11:53:34,450 17855 INFO public.pgbench_branches: truncating
+2017-07-04 11:53:34,451 17855 INFO public.pgbench_branches: start copy
+2017-07-04 11:53:34,453 17855 INFO public.pgbench_branches: copy finished: 24 bytes, 2 rows
+2017-07-04 11:53:34,453 17855 INFO storing state of public.pgbench_branches: copy:1 new_state:catching-up
+2017-07-04 11:53:34,454 17855 INFO Creating pgbench_branches_pkey
+2017-07-04 11:53:35,402 17673 INFO storing state of public.pgbench_accounts: copy:0 new_state:ok
+2017-07-04 11:53:35,424 17673 INFO {count: 0, duration: 0.0327}
+2017-07-04 11:53:37,582 17855 INFO {count: 0, duration: 3.1805}
+2017-07-04 11:53:37,616 17855 INFO {count: 0, duration: 0.0303}
+2017-07-04 11:53:38,465 17673 INFO {count: 0, duration: 0.0247}
+2017-07-04 11:53:38,636 17855 INFO storing state of public.pgbench_branches: copy:1 new_state:wanna-sync:19
+2017-07-04 11:53:38,640 17855 INFO Table public.pgbench_branches status changed to 'wanna-sync:19'
+2017-07-04 11:53:44,500 17673 INFO storing state of public.pgbench_branches: copy:0 new_state:do-sync:20
+2017-07-04 11:53:44,507 17673 INFO Table public.pgbench_branches status changed to 'do-sync:20'
+2017-07-04 11:53:44,674 17855 INFO {count: 0, duration: 6.0506}
+2017-07-04 11:53:44,684 17855 INFO storing state of public.pgbench_branches: copy:1 new_state:ok
+2017-07-04 11:53:44,690 17855 INFO Table public.pgbench_branches status changed to 'ok'
+2017-07-04 11:53:44,692 17855 INFO Unregistering consumer from source queue
+2017-07-04 11:53:44,709 17855 INFO Consumer st3_l3simple_db2.copy.public.pgbench_branches unregistered from replika
+2017-07-04 11:53:44,715 17855 INFO got SystemExit(0), exiting
+2017-07-04 11:53:47,515 17673 INFO Dropping fkey: pgbench_history_tellers_fk
+2017-07-04 11:53:47,523 17673 INFO storing state of public.pgbench_history: copy:0 new_state:in-copy
+2017-07-04 11:53:47,532 17673 INFO Table public.pgbench_history status changed to 'in-copy'
+2017-07-04 11:53:47,532 17673 INFO Launching copy process
+2017-07-04 11:53:47,603 17876 INFO Using 'node1' as source node
+2017-07-04 11:53:47,609 17876 INFO Registering consumer on source queue
+2017-07-04 11:53:47,616 17876 INFO Consumer st3_l3simple_db2.copy.public.pgbench_history registered on queue replika
+2017-07-04 11:53:47,624 17876 INFO Consumer uptodate = 1
+2017-07-04 11:53:50,641 17673 INFO {count: 0, duration: 6.1457}
+2017-07-04 11:53:57,699 17673 INFO {count: 0, duration: 0.0208}
+2017-07-04 11:53:57,709 17876 INFO pgq.maint_operations is installed
+2017-07-04 11:53:57,717 17876 INFO Starting full copy of public.pgbench_history
+2017-07-04 11:53:57,749 17876 INFO Dropping pgbench_history_pkey
+2017-07-04 11:53:57,749 17876 INFO public.pgbench_history: truncating
+2017-07-04 11:53:57,750 17876 INFO public.pgbench_history: start copy
+2017-07-04 11:53:57,789 17876 INFO public.pgbench_history: copy finished: 703285 bytes, 13694 rows
+2017-07-04 11:53:57,790 17876 INFO storing state of public.pgbench_history: copy:1 new_state:catching-up
+2017-07-04 11:53:57,791 17876 INFO Creating pgbench_history_pkey
+2017-07-04 11:53:59,739 17673 INFO storing state of public.pgbench_branches: copy:0 new_state:ok
+2017-07-04 11:53:59,746 17673 INFO Creating fkey: pgbench_accounts_branches_fk (public.pgbench_accounts --> public.pgbench_branches)
+2017-07-04 11:53:59,803 17673 INFO {count: 0, duration: 0.0935}
+2017-07-04 11:54:00,921 17876 INFO {count: 0, duration: 3.2229}
+2017-07-04 11:54:00,954 17876 INFO {count: 0, duration: 0.0302}
+2017-07-04 11:54:03,991 17876 INFO storing state of public.pgbench_history: copy:1 new_state:wanna-sync:23
+2017-07-04 11:54:03,995 17876 INFO Table public.pgbench_history status changed to 'wanna-sync:23'
+2017-07-04 11:54:04,839 17673 INFO storing state of public.pgbench_history: copy:0 new_state:do-sync:23
+2017-07-04 11:54:04,846 17673 INFO Table public.pgbench_history status changed to 'do-sync:23'
+2017-07-04 11:54:06,999 17876 INFO storing state of public.pgbench_history: copy:1 new_state:ok
+2017-07-04 11:54:07,004 17876 INFO Table public.pgbench_history status changed to 'ok'
+2017-07-04 11:54:07,006 17876 INFO Unregistering consumer from source queue
+2017-07-04 11:54:07,023 17876 INFO Consumer st3_l3simple_db2.copy.public.pgbench_history unregistered from replika
+2017-07-04 11:54:07,029 17876 INFO got SystemExit(0), exiting
+2017-07-04 11:54:07,854 17673 INFO storing state of public.pgbench_tellers: copy:0 new_state:in-copy
+2017-07-04 11:54:07,862 17673 INFO Table public.pgbench_tellers status changed to 'in-copy'
+2017-07-04 11:54:07,863 17673 INFO Launching copy process
+2017-07-04 11:54:07,948 17892 INFO Using 'node1' as source node
+2017-07-04 11:54:07,954 17892 INFO Registering consumer on source queue
+2017-07-04 11:54:07,964 17892 INFO Consumer st3_l3simple_db2.copy.public.pgbench_tellers registered on queue replika
+2017-07-04 11:54:07,971 17892 INFO Consumer uptodate = 1
+2017-07-04 11:54:10,962 17673 INFO {count: 0, duration: 6.136}
+2017-07-04 11:54:14,039 17892 INFO pgq.maint_operations is installed
+2017-07-04 11:54:14,047 17892 INFO Starting full copy of public.pgbench_tellers
+2017-07-04 11:54:14,073 17892 INFO Dropping pgbench_tellers_pkey
+2017-07-04 11:54:14,074 17892 INFO public.pgbench_tellers: truncating
+2017-07-04 11:54:14,074 17892 INFO public.pgbench_tellers: start copy
+2017-07-04 11:54:14,076 17892 INFO public.pgbench_tellers: copy finished: 280 bytes, 20 rows
+2017-07-04 11:54:14,076 17892 INFO storing state of public.pgbench_tellers: copy:1 new_state:catching-up
+2017-07-04 11:54:14,077 17892 INFO Creating pgbench_tellers_pkey
+2017-07-04 11:54:15,021 17673 INFO {count: 0, duration: 0.0405}
+2017-07-04 11:54:15,031 17673 INFO storing state of public.pgbench_history: copy:0 new_state:ok
+2017-07-04 11:54:15,038 17673 INFO Creating fkey: pgbench_history_accounts_fk (public.pgbench_history --> public.pgbench_accounts)
+2017-07-04 11:54:15,104 17673 INFO Creating fkey: pgbench_history_branches_fk (public.pgbench_history --> public.pgbench_branches)
+2017-07-04 11:54:15,129 17673 INFO {count: 0, duration: 0.1055}
+2017-07-04 11:54:17,195 17892 INFO {count: 0, duration: 3.1669}
+2017-07-04 11:54:17,220 17892 INFO {count: 0, duration: 0.0241}
+2017-07-04 11:54:17,930 17897 INFO Checking if node1 can be used for copy
+2017-07-04 11:54:17,931 17897 INFO Node node1 seems good source, using it
+2017-07-04 11:54:17,931 17897 INFO public.pgbench_accounts: Using node node1 as provider
+2017-07-04 11:54:17,940 17897 INFO Provider: node1 (root)
+2017-07-04 11:54:17,943 17897 INFO Locking public.pgbench_accounts
+2017-07-04 11:54:17,944 17897 INFO Syncing public.pgbench_accounts
+2017-07-04 11:54:18,179 17673 INFO {count: 0, duration: 0.0402}
+2017-07-04 11:54:18,233 17892 INFO storing state of public.pgbench_tellers: copy:1 new_state:wanna-sync:26
+2017-07-04 11:54:18,237 17892 INFO Table public.pgbench_tellers status changed to 'wanna-sync:26'
+2017-07-04 11:54:19,197 17673 INFO storing state of public.pgbench_tellers: copy:0 new_state:do-sync:27
+2017-07-04 11:54:19,204 17673 INFO Table public.pgbench_tellers status changed to 'do-sync:27'
+2017-07-04 11:54:21,262 17892 INFO {count: 0, duration: 3.0369}
+2017-07-04 11:54:21,271 17892 INFO storing state of public.pgbench_tellers: copy:1 new_state:ok
+2017-07-04 11:54:21,279 17892 INFO Table public.pgbench_tellers status changed to 'ok'
+2017-07-04 11:54:21,280 17892 INFO Unregistering consumer from source queue
+2017-07-04 11:54:21,289 17892 INFO Consumer st3_l3simple_db2.copy.public.pgbench_tellers unregistered from replika
+2017-07-04 11:54:21,296 17892 INFO got SystemExit(0), exiting
+2017-07-04 11:54:22,229 17673 INFO {count: 0, duration: 3.0422}
+2017-07-04 11:54:22,254 17673 INFO {count: 0, duration: 0.0223}
+2017-07-04 11:54:22,502 17897 INFO Counting public.pgbench_accounts
+2017-07-04 11:54:22,649 17897 INFO srcdb: 200000 rows, checksum=11380131183
+2017-07-04 11:54:22,778 17897 INFO dstdb: 200000 rows, checksum=11380131183
+2017-07-04 11:54:22,784 17897 INFO Checking if node1 can be used for copy
+2017-07-04 11:54:22,785 17897 INFO Node node1 seems good source, using it
+2017-07-04 11:54:22,785 17897 INFO public.pgbench_branches: Using node node1 as provider
+2017-07-04 11:54:22,794 17897 INFO Provider: node1 (root)
+2017-07-04 11:54:22,796 17897 INFO Locking public.pgbench_branches
+2017-07-04 11:54:22,797 17897 INFO Syncing public.pgbench_branches
+2017-07-04 11:54:23,273 17673 INFO storing state of public.pgbench_tellers: copy:0 new_state:ok
+2017-07-04 11:54:23,280 17673 INFO Creating fkey: pgbench_history_tellers_fk (public.pgbench_history --> public.pgbench_tellers)
+2017-07-04 11:54:23,296 17673 INFO Creating fkey: pgbench_tellers_branches_fk (public.pgbench_tellers --> public.pgbench_branches)
+2017-07-04 11:54:23,338 17673 INFO {count: 0, duration: 0.075}
+2017-07-04 11:54:24,371 17673 INFO {count: 0, duration: 0.0252}
+2017-07-04 11:54:25,351 17897 INFO Counting public.pgbench_branches
+2017-07-04 11:54:25,367 17897 INFO srcdb: 2 rows, checksum=221953764
+2017-07-04 11:54:25,368 17897 INFO dstdb: 2 rows, checksum=221953764
+2017-07-04 11:54:25,374 17897 INFO Checking if node1 can be used for copy
+2017-07-04 11:54:25,375 17897 INFO Node node1 seems good source, using it
+2017-07-04 11:54:25,375 17897 INFO public.pgbench_history: Using node node1 as provider
+2017-07-04 11:54:25,384 17897 INFO Provider: node1 (root)
+2017-07-04 11:54:25,387 17897 INFO Locking public.pgbench_history
+2017-07-04 11:54:25,387 17897 INFO Syncing public.pgbench_history
+2017-07-04 11:54:25,395 17673 INFO {count: 0, duration: 0.0194}
+2017-07-04 11:54:26,421 17673 INFO {count: 0, duration: 0.0204}
+2017-07-04 11:54:27,454 17673 INFO {count: 0, duration: 0.0255}
+2017-07-04 11:54:28,467 17897 INFO Counting public.pgbench_history
+2017-07-04 11:54:28,479 17673 INFO {count: 0, duration: 0.0197}
+2017-07-04 11:54:28,514 17897 INFO srcdb: 13694 rows, checksum=-84438706014
+2017-07-04 11:54:28,528 17897 INFO dstdb: 13694 rows, checksum=-84438706014
+2017-07-04 11:54:28,528 17897 WARNING Table public.pgbench_tellers not synced yet, no point
+2017-07-04 11:54:31,512 17673 INFO {count: 0, duration: 0.0202}
+2017-07-04 11:54:37,562 17673 INFO {count: 0, duration: 0.0218}
+2017-07-04 11:54:40,604 17673 INFO {count: 1, duration: 0.0243, idle: 148.7836}
+2017-07-04 11:54:47,662 17673 INFO {count: 0, duration: 0.0244}
+2017-07-04 11:55:02,762 17673 INFO {count: 0, duration: 0.0254}
+2017-07-04 11:55:13,412 17924 INFO Checking if node1 can be used for copy
+2017-07-04 11:55:13,413 17924 INFO Node node1 seems good source, using it
+2017-07-04 11:55:13,413 17924 INFO public.pgbench_accounts: Using node node1 as provider
+2017-07-04 11:55:13,422 17924 INFO Provider: node1 (root)
+2017-07-04 11:55:13,426 17924 INFO Locking public.pgbench_accounts
+2017-07-04 11:55:13,426 17924 INFO Syncing public.pgbench_accounts
+2017-07-04 11:55:14,829 17673 INFO {count: 0, duration: 0.0206}
+2017-07-04 11:55:15,862 17673 INFO {count: 0, duration: 0.0255}
+2017-07-04 11:55:16,589 17924 INFO Counting public.pgbench_accounts
+2017-07-04 11:55:16,732 17924 INFO srcdb: 200000 rows, checksum=11380131183
+2017-07-04 11:55:16,860 17924 INFO dstdb: 200000 rows, checksum=11380131183
+2017-07-04 11:55:16,866 17924 INFO Checking if node1 can be used for copy
+2017-07-04 11:55:16,867 17924 INFO Node node1 seems good source, using it
+2017-07-04 11:55:16,867 17924 INFO public.pgbench_branches: Using node node1 as provider
+2017-07-04 11:55:16,876 17924 INFO Provider: node1 (root)
+2017-07-04 11:55:16,879 17924 INFO Locking public.pgbench_branches
+2017-07-04 11:55:16,879 17924 INFO Syncing public.pgbench_branches
+2017-07-04 11:55:16,914 17673 INFO {count: 0, duration: 0.0461}
+2017-07-04 11:55:17,946 17673 INFO {count: 0, duration: 0.024}
+2017-07-04 11:55:18,988 17673 INFO {count: 0, duration: 0.0324}
+2017-07-04 11:55:19,436 17924 INFO Counting public.pgbench_branches
+2017-07-04 11:55:19,452 17924 INFO srcdb: 2 rows, checksum=221953764
+2017-07-04 11:55:19,454 17924 INFO dstdb: 2 rows, checksum=221953764
+2017-07-04 11:55:19,464 17924 INFO Checking if node1 can be used for copy
+2017-07-04 11:55:19,465 17924 INFO Node node1 seems good source, using it
+2017-07-04 11:55:19,465 17924 INFO public.pgbench_history: Using node node1 as provider
+2017-07-04 11:55:19,474 17924 INFO Provider: node1 (root)
+2017-07-04 11:55:19,477 17924 INFO Locking public.pgbench_history
+2017-07-04 11:55:19,478 17924 INFO Syncing public.pgbench_history
+2017-07-04 11:55:20,021 17673 INFO {count: 0, duration: 0.0257}
+2017-07-04 11:55:21,054 17673 INFO {count: 0, duration: 0.0287}
+2017-07-04 11:55:22,096 17673 INFO {count: 0, duration: 0.0382}
+2017-07-04 11:55:22,551 17924 INFO Counting public.pgbench_history
+2017-07-04 11:55:22,588 17924 INFO srcdb: 13694 rows, checksum=-84438706014
+2017-07-04 11:55:22,600 17924 INFO dstdb: 13694 rows, checksum=-84438706014
+2017-07-04 11:55:22,607 17924 INFO Checking if node1 can be used for copy
+2017-07-04 11:55:22,608 17924 INFO Node node1 seems good source, using it
+2017-07-04 11:55:22,608 17924 INFO public.pgbench_tellers: Using node node1 as provider
+2017-07-04 11:55:22,619 17924 INFO Provider: node1 (root)
+2017-07-04 11:55:22,622 17924 INFO Locking public.pgbench_tellers
+2017-07-04 11:55:22,622 17924 INFO Syncing public.pgbench_tellers
+2017-07-04 11:55:23,129 17673 INFO {count: 0, duration: 0.0256}
+2017-07-04 11:55:24,163 17673 INFO {count: 0, duration: 0.0259}
+2017-07-04 11:55:25,204 17673 INFO {count: 0, duration: 0.0341}
+2017-07-04 11:55:25,685 17924 INFO Counting public.pgbench_tellers
+2017-07-04 11:55:25,701 17924 INFO srcdb: 20 rows, checksum=5645852842
+2017-07-04 11:55:25,702 17924 INFO dstdb: 20 rows, checksum=5645852842
+2017-07-04 11:55:26,254 17673 INFO {count: 0, duration: 0.042}
+2017-07-04 11:55:29,296 17673 INFO {count: 0, duration: 0.0231}
+2017-07-04 11:55:36,354 17673 INFO {count: 0, duration: 0.0232}
+2017-07-04 11:55:50,454 17673 INFO {count: 0, duration: 0.0379}
+2017-07-04 11:56:08,571 17673 INFO {count: 1, duration: 0.0328, idle: 87.9339}
+2017-07-04 11:56:14,830 17673 INFO {count: 309, duration: 0.2286, idle: 6.0311}
+2017-07-04 11:56:16,999 17673 INFO {count: 852, duration: 0.1569, idle: 2.0123}
+2017-07-04 11:56:19,178 17673 INFO {count: 932, duration: 0.1686, idle: 2.0102}
+2017-07-04 11:56:21,356 17673 INFO {count: 964, duration: 0.1684, idle: 2.0095}
+2017-07-04 11:56:23,516 17673 INFO {count: 756, duration: 0.1508, idle: 2.0096}
+2017-07-04 11:56:25,609 17673 INFO {count: 576, duration: 0.0806, idle: 2.0115}
+2017-07-04 11:56:29,050 17969 INFO Checking if node1 can be used for copy
+2017-07-04 11:56:29,051 17969 INFO Node node1 seems good source, using it
+2017-07-04 11:56:29,051 17969 INFO public.pgbench_accounts: Using node node1 as provider
+2017-07-04 11:56:29,059 17969 INFO Provider: node1 (root)
+2017-07-04 11:56:29,062 17969 INFO Locking public.pgbench_accounts
+2017-07-04 11:56:29,063 17969 INFO Syncing public.pgbench_accounts
+2017-07-04 11:56:30,659 17673 INFO {count: 0, duration: 0.0247}
+2017-07-04 11:56:31,709 17673 INFO {count: 0, duration: 0.0453}
+2017-07-04 11:56:31,734 17673 INFO {count: 0, duration: 0.022}
+2017-07-04 11:56:32,133 17969 INFO Counting public.pgbench_accounts
+2017-07-04 11:56:32,283 17969 INFO srcdb: 200000 rows, checksum=37596812778
+2017-07-04 11:56:32,416 17969 INFO dstdb: 200000 rows, checksum=37596812778
+2017-07-04 11:56:32,422 17969 INFO Checking if node1 can be used for copy
+2017-07-04 11:56:32,422 17969 INFO Node node1 seems good source, using it
+2017-07-04 11:56:32,422 17969 INFO public.pgbench_branches: Using node node1 as provider
+2017-07-04 11:56:32,431 17969 INFO Provider: node1 (root)
+2017-07-04 11:56:32,433 17969 INFO Locking public.pgbench_branches
+2017-07-04 11:56:32,434 17969 INFO Syncing public.pgbench_branches
+2017-07-04 11:56:32,768 17673 INFO {count: 0, duration: 0.0261}
+2017-07-04 11:56:33,801 17673 INFO {count: 0, duration: 0.0252}
+2017-07-04 11:56:34,834 17673 INFO {count: 0, duration: 0.0256}
+2017-07-04 11:56:35,006 17969 INFO Counting public.pgbench_branches
+2017-07-04 11:56:35,012 17969 INFO srcdb: 2 rows, checksum=1657522026
+2017-07-04 11:56:35,013 17969 INFO dstdb: 2 rows, checksum=1657522026
+2017-07-04 11:56:35,018 17969 INFO Checking if node1 can be used for copy
+2017-07-04 11:56:35,019 17969 INFO Node node1 seems good source, using it
+2017-07-04 11:56:35,019 17969 INFO public.pgbench_history: Using node node1 as provider
+2017-07-04 11:56:35,028 17969 INFO Provider: node1 (root)
+2017-07-04 11:56:35,031 17969 INFO Locking public.pgbench_history
+2017-07-04 11:56:35,031 17969 INFO Syncing public.pgbench_history
+2017-07-04 11:56:35,868 17673 INFO {count: 0, duration: 0.0266}
+2017-07-04 11:56:36,901 17673 INFO {count: 0, duration: 0.0258}
+2017-07-04 11:56:38,018 17673 INFO {count: 0, duration: 0.1073}
+2017-07-04 11:56:38,115 17969 INFO Counting public.pgbench_history
+2017-07-04 11:56:38,126 17969 INFO srcdb: 1097 rows, checksum=-11412900533
+2017-07-04 11:56:38,128 17969 INFO dstdb: 1097 rows, checksum=-11412900533
+2017-07-04 11:56:38,136 17969 INFO Checking if node1 can be used for copy
+2017-07-04 11:56:38,137 17969 INFO Node node1 seems good source, using it
+2017-07-04 11:56:38,137 17969 INFO public.pgbench_tellers: Using node node1 as provider
+2017-07-04 11:56:38,146 17969 INFO Provider: node1 (root)
+2017-07-04 11:56:38,151 17969 INFO Locking public.pgbench_tellers
+2017-07-04 11:56:38,151 17969 INFO Syncing public.pgbench_tellers
+2017-07-04 11:56:39,051 17673 INFO {count: 0, duration: 0.0251}
+2017-07-04 11:56:40,085 17673 INFO {count: 0, duration: 0.0274}
+2017-07-04 11:56:41,118 17673 INFO {count: 0, duration: 0.0237}
+2017-07-04 11:56:41,207 17969 INFO Counting public.pgbench_tellers
+2017-07-04 11:56:41,220 17969 INFO srcdb: 20 rows, checksum=2914086349
+2017-07-04 11:56:41,220 17969 INFO dstdb: 20 rows, checksum=2914086349
+2017-07-04 11:56:43,168 17673 INFO {count: 0, duration: 0.0377}
+2017-07-04 11:56:48,243 17673 INFO {count: 0, duration: 0.0504}
+2017-07-04 11:56:59,326 17673 INFO {count: 0, duration: 0.0256}
+2017-07-04 11:57:22,460 17673 INFO {count: 0, duration: 0.0263}
+2017-07-04 11:57:28,598 17673 INFO {count: 25, duration: 0.1098, idle: 62.8799}
+2017-07-04 11:57:30,767 17673 INFO {count: 904, duration: 0.1552, idle: 2.0138}
+2017-07-04 11:57:32,936 17673 INFO {count: 924, duration: 0.1552, idle: 2.0135}
+2017-07-04 11:57:35,100 17673 INFO {count: 924, duration: 0.1496, idle: 2.0142}
+2017-07-04 11:57:36,235 17673 INFO {count: 756, duration: 0.1274, idle: 1.0076}
+2017-07-04 11:57:38,427 17673 INFO {count: 624, duration: 0.1826, idle: 2.0093}
+2017-07-04 11:57:40,572 17673 INFO {count: 828, duration: 0.1403, idle: 2.0055}
+2017-07-04 11:57:42,729 17673 INFO {count: 936, duration: 0.1482, idle: 2.0088}
+2017-07-04 11:57:44,884 17673 INFO {count: 872, duration: 0.1445, idle: 2.0099}
+2017-07-04 11:57:47,249 17673 INFO {count: 916, duration: 0.3537, idle: 2.0111}
+2017-07-04 11:57:48,412 17673 INFO {count: 732, duration: 0.1571, idle: 1.0068}
+2017-07-04 11:57:50,494 18019 INFO Checking if node1 can be used for copy
+2017-07-04 11:57:50,495 18019 INFO Node node1 seems good source, using it
+2017-07-04 11:57:50,495 18019 INFO public.pgbench_accounts: Using node node1 as provider
+2017-07-04 11:57:50,504 18019 INFO Provider: node1 (root)
+2017-07-04 11:57:50,507 18019 INFO Locking public.pgbench_accounts
+2017-07-04 11:57:50,508 18019 INFO Syncing public.pgbench_accounts
+2017-07-04 11:57:51,446 17673 INFO {count: 0, duration: 0.02}
+2017-07-04 11:57:52,479 17673 INFO {count: 0, duration: 0.0257}
+2017-07-04 11:57:53,513 17673 INFO {count: 0, duration: 0.0265}
+2017-07-04 11:57:53,577 18019 INFO Counting public.pgbench_accounts
+2017-07-04 11:57:53,721 18019 INFO srcdb: 200000 rows, checksum=-121002965987
+2017-07-04 11:57:53,854 18019 INFO dstdb: 200000 rows, checksum=-121002965987
+2017-07-04 11:57:53,860 18019 INFO Checking if node1 can be used for copy
+2017-07-04 11:57:53,861 18019 INFO Node node1 seems good source, using it
+2017-07-04 11:57:53,861 18019 INFO public.pgbench_branches: Using node node1 as provider
+2017-07-04 11:57:53,870 18019 INFO Provider: node1 (root)
+2017-07-04 11:57:53,872 18019 INFO Locking public.pgbench_branches
+2017-07-04 11:57:53,873 18019 INFO Syncing public.pgbench_branches
+2017-07-04 11:57:54,540 17673 INFO {count: 0, duration: 0.0211}
+2017-07-04 11:57:55,565 17673 INFO {count: 0, duration: 0.0205}
+2017-07-04 11:57:56,438 18019 INFO Counting public.pgbench_branches
+2017-07-04 11:57:56,454 18019 INFO srcdb: 2 rows, checksum=966966696
+2017-07-04 11:57:56,456 18019 INFO dstdb: 2 rows, checksum=966966696
+2017-07-04 11:57:56,474 18019 INFO Checking if node1 can be used for copy
+2017-07-04 11:57:56,476 18019 INFO Node node1 seems good source, using it
+2017-07-04 11:57:56,476 18019 INFO public.pgbench_history: Using node node1 as provider
+2017-07-04 11:57:56,488 18019 INFO Provider: node1 (root)
+2017-07-04 11:57:56,492 18019 INFO Locking public.pgbench_history
+2017-07-04 11:57:56,492 18019 INFO Syncing public.pgbench_history
+2017-07-04 11:57:56,598 17673 INFO {count: 0, duration: 0.0262}
+2017-07-04 11:57:57,631 17673 INFO {count: 0, duration: 0.0267}
+2017-07-04 11:57:58,665 17673 INFO {count: 0, duration: 0.0244}
+2017-07-04 11:57:59,546 18019 INFO Counting public.pgbench_history
+2017-07-04 11:57:59,571 18019 INFO srcdb: 2110 rows, checksum=-70057098209
+2017-07-04 11:57:59,577 18019 INFO dstdb: 2110 rows, checksum=-70057098209
+2017-07-04 11:57:59,583 18019 INFO Checking if node1 can be used for copy
+2017-07-04 11:57:59,584 18019 INFO Node node1 seems good source, using it
+2017-07-04 11:57:59,584 18019 INFO public.pgbench_tellers: Using node node1 as provider
+2017-07-04 11:57:59,592 18019 INFO Provider: node1 (root)
+2017-07-04 11:57:59,595 18019 INFO Locking public.pgbench_tellers
+2017-07-04 11:57:59,595 18019 INFO Syncing public.pgbench_tellers
+2017-07-04 11:57:59,698 17673 INFO {count: 0, duration: 0.0254}
+2017-07-04 11:58:00,731 17673 INFO {count: 0, duration: 0.0255}
+2017-07-04 11:58:01,756 17673 INFO {count: 0, duration: 0.0201}
+2017-07-04 11:58:02,656 18019 INFO Counting public.pgbench_tellers
+2017-07-04 11:58:02,665 18019 INFO srcdb: 20 rows, checksum=-5248881894
+2017-07-04 11:58:02,666 18019 INFO dstdb: 20 rows, checksum=-5248881894
+2017-07-04 11:58:02,790 17673 INFO {count: 0, duration: 0.0251}
+2017-07-04 11:58:04,823 17673 INFO {count: 0, duration: 0.024}
+2017-07-04 11:58:08,873 17673 INFO {count: 1, duration: 0.0291, idle: 20.4315}
+2017-07-04 11:58:16,940 17673 INFO {count: 0, duration: 0.0242}
+2017-07-04 11:58:34,048 17673 INFO {count: 0, duration: 0.0219}
+2017-07-04 11:59:09,240 17673 INFO {count: 0, duration: 0.0234}
+2017-07-04 11:59:49,456 17673 INFO {count: 1, duration: 0.0224, idle: 100.5606}
+2017-07-04 12:00:48,748 17673 INFO {count: 0, duration: 0.0219}
+2017-07-04 12:01:49,056 17673 INFO {count: 0, duration: 0.0353}
+2017-07-04 12:02:08,172 17673 INFO {count: 1, duration: 0.023, idle: 138.6933}
+2017-07-04 12:02:47,389 17673 INFO {count: 0, duration: 0.0458}
+2017-07-04 12:03:47,697 17673 INFO {count: 0, duration: 0.0357}
+2017-07-04 12:04:47,997 17673 INFO {count: 0, duration: 0.0227}
+2017-07-04 12:04:59,080 17673 INFO {count: 1, duration: 0.0306, idle: 170.8774}
+2017-07-04 12:05:21,230 17673 INFO {count: 0, duration: 0.042}
+2017-07-04 12:06:06,497 17673 INFO {count: 0, duration: 0.0509}
+2017-07-04 12:06:08,588 17673 INFO {count: 1, duration: 0.0416, idle: 69.4663}
+2017-07-04 12:06:15,672 17673 INFO {count: 0, duration: 0.0358}
+2017-07-04 12:06:29,772 17673 INFO {count: 0, duration: 0.0315}
+2017-07-04 12:06:57,946 17673 INFO {count: 0, duration: 0.0547}
+2017-07-04 12:07:55,246 17673 INFO {count: 0, duration: 0.0297}
+2017-07-04 12:08:09,355 17673 INFO {count: 1, duration: 0.0347, idle: 120.7315}
+2017-07-04 12:08:38,529 17673 INFO {count: 0, duration: 0.0425}
+2017-07-04 12:09:37,829 17673 INFO {count: 0, duration: 0.0236}
+2017-07-04 12:10:06,987 17673 INFO {count: 1, duration: 0.0294, idle: 117.6034}
+2017-07-04 12:10:31,214 17673 INFO {count: 1, duration: 0.1214, idle: 24.1051}
+2017-07-04 12:10:33,401 17673 INFO {count: 888, duration: 0.1735, idle: 2.0131}
+2017-07-04 12:10:35,571 17673 INFO {count: 960, duration: 0.1583, idle: 2.0119}
+2017-07-04 12:10:37,740 17673 INFO {count: 944, duration: 0.1589, idle: 2.0099}
+2017-07-04 12:10:39,899 17673 INFO {count: 876, duration: 0.1461, idle: 2.0128}
+2017-07-04 12:10:42,066 17673 INFO {count: 968, duration: 0.1572, idle: 2.0107}
+2017-07-04 12:10:44,240 17673 INFO {count: 900, duration: 0.16, idle: 2.0137}
+2017-07-04 12:10:45,401 17673 INFO {count: 936, duration: 0.1553, idle: 1.0057}
+2017-07-04 12:10:47,575 17673 INFO {count: 948, duration: 0.1643, idle: 2.0101}
+2017-07-04 12:10:49,747 17673 INFO {count: 940, duration: 0.161, idle: 2.011}
+2017-07-04 12:10:51,999 17673 INFO {count: 828, duration: 0.2396, idle: 2.0125}
+2017-07-04 12:10:56,041 17673 INFO {count: 0, duration: 0.0237}
+2017-07-04 12:11:05,108 17673 INFO {count: 0, duration: 0.0223}
+2017-07-04 12:11:24,216 17673 INFO {count: 0, duration: 0.0237}
+2017-07-04 12:12:02,425 17673 INFO {count: 0, duration: 0.0302}
+2017-07-04 12:12:08,491 17673 INFO {count: 1, duration: 0.0374, idle: 76.4545}
+2017-07-04 12:12:20,575 17673 INFO {count: 0, duration: 0.0248}
+2017-07-04 12:12:45,708 17673 INFO {count: 0, duration: 0.0263}
+2017-07-04 12:13:36,974 17673 INFO {count: 0, duration: 0.0276}
+2017-07-04 12:14:37,258 17673 INFO {count: 0, duration: 0.036}
+2017-07-04 12:15:15,457 17673 INFO {count: 1, duration: 0.0263, idle: 186.9394}
+2017-07-04 12:16:15,765 17673 INFO {count: 0, duration: 0.0264}
+2017-07-04 12:17:16,073 17673 INFO {count: 0, duration: 0.0307}
+2017-07-04 12:18:08,340 17673 INFO {count: 1, duration: 0.0235, idle: 172.8594}
+2017-07-04 12:19:08,648 17673 INFO {count: 0, duration: 0.0224}
+2017-07-04 12:20:08,948 17673 INFO {count: 0, duration: 0.022}
+2017-07-04 12:20:24,073 17673 INFO {count: 1, duration: 0.0351, idle: 135.6977}
+2017-07-04 12:20:55,239 17673 INFO {count: 0, duration: 0.0213}
+2017-07-04 12:21:55,548 17673 INFO {count: 0, duration: 0.023}
+2017-07-04 12:22:09,649 17673 INFO {count: 1, duration: 0.025, idle: 105.551}
+2017-07-04 12:22:37,807 17673 INFO {count: 0, duration: 0.0324}
+2017-07-04 12:23:37,107 17673 INFO {count: 0, duration: 0.022}
+2017-07-04 12:24:09,307 17673 INFO {count: 1, duration: 0.0419, idle: 119.616}
+2017-07-04 12:25:09,606 17673 INFO {count: 0, duration: 0.0243}
+2017-07-04 12:25:33,765 17673 INFO {count: 1, duration: 0.0397, idle: 84.4183}
+2017-07-04 12:26:22,064 17673 INFO {count: 0, duration: 0.0364}
+2017-07-04 12:27:21,406 17673 INFO {count: 0, duration: 0.064}
+2017-07-04 12:28:08,681 17673 INFO {count: 1, duration: 0.0457, idle: 154.8706}
+2017-07-04 12:29:09,005 17673 INFO {count: 0, duration: 0.0344}
+2017-07-04 12:30:09,356 17673 INFO {count: 1, duration: 0.0659, idle: 120.6086}
+2017-07-04 12:30:42,547 17673 INFO {count: 1, duration: 0.0291, idle: 33.1623}
+2017-07-04 12:31:41,847 17673 INFO {count: 0, duration: 0.0251}
+2017-07-04 12:32:42,147 17673 INFO {count: 0, duration: 0.0248}
+2017-07-04 12:33:42,454 17673 INFO {count: 0, duration: 0.0304}
+2017-07-04 12:34:09,621 17673 INFO {count: 1, duration: 0.0402, idle: 207.034}
+2017-07-04 12:35:03,896 17673 INFO {count: 0, duration: 0.0253}
+2017-07-04 12:35:51,137 17673 INFO {count: 1, duration: 0.0223, idle: 101.4936}
+2017-07-04 12:36:50,454 17673 INFO {count: 0, duration: 0.0265}
+2017-07-04 12:37:50,754 17673 INFO {count: 0, duration: 0.0246}
+2017-07-04 12:38:08,904 17673 INFO {count: 1, duration: 0.0635, idle: 137.7032}
+2017-07-04 12:38:46,112 17673 INFO {count: 0, duration: 0.0284}
+2017-07-04 12:39:46,395 17673 INFO {count: 0, duration: 0.0257}
+2017-07-04 12:40:09,520 17673 INFO {count: 1, duration: 0.0273, idle: 120.5889}
+2017-07-04 12:40:55,770 17673 INFO {count: 0, duration: 0.0222}
+2017-07-04 12:40:59,878 17673 INFO {count: 1, duration: 0.0872, idle: 50.2708}
+2017-07-04 12:41:07,936 17673 INFO {count: 0, duration: 0.0249}
+2017-07-04 12:41:26,045 17673 INFO {count: 0, duration: 0.0233}
+2017-07-04 12:42:03,253 17673 INFO {count: 0, duration: 0.0253}
+2017-07-04 12:43:03,561 17673 INFO {count: 0, duration: 0.0274}
+2017-07-04 12:44:03,977 17673 INFO {count: 0, duration: 0.1438}
+2017-07-04 12:44:09,036 17673 INFO {count: 1, duration: 0.025, idle: 189.1329}
+2017-07-04 12:44:20,111 17673 INFO {count: 0, duration: 0.0204}
+2017-07-04 12:44:42,236 17673 INFO {count: 0, duration: 0.0247}
+2017-07-04 12:45:27,469 17673 INFO {count: 0, duration: 0.023}
+2017-07-04 12:46:07,685 17673 INFO {count: 1, duration: 0.0204, idle: 118.6291}
+2017-07-04 12:47:08,035 17673 INFO {count: 0, duration: 0.0416}
+2017-07-04 12:48:08,327 17673 INFO {count: 0, duration: 0.0288}
+2017-07-04 12:48:11,368 17673 INFO {count: 1, duration: 0.0268, idle: 123.6562}
+2017-07-04 12:48:18,494 17673 INFO {count: 0, duration: 0.0915}
+2017-07-04 12:48:33,585 17673 INFO {count: 0, duration: 0.0221}
+2017-07-04 12:49:04,760 17673 INFO {count: 0, duration: 0.0375}
+2017-07-04 12:50:05,051 17673 INFO {count: 0, duration: 0.0201}
+2017-07-04 12:50:10,101 17673 INFO {count: 1, duration: 0.0242, idle: 118.7086}
+2017-07-04 12:50:21,168 17673 INFO {count: 0, duration: 0.0207}
+2017-07-04 12:50:43,293 17673 INFO {count: 0, duration: 0.0252}
+2017-07-04 12:51:16,476 17673 INFO {count: 1, duration: 0.026, idle: 66.3488}
+2017-07-04 12:52:16,768 17673 INFO {count: 0, duration: 0.0208}
+2017-07-04 12:53:17,068 17673 INFO {count: 0, duration: 0.0265}
+2017-07-04 12:54:09,326 17673 INFO {count: 1, duration: 0.0296, idle: 172.8206}
+2017-07-04 12:55:09,610 17673 INFO {count: 0, duration: 0.0271}
+2017-07-04 12:56:09,959 17673 INFO {count: 1, duration: 0.0902, idle: 120.5426}
+2017-07-04 12:56:25,059 17673 INFO {count: 1, duration: 0.0352, idle: 15.0649}
+2017-07-04 13:01:03,308 17673 INFO {count: 0, duration: 0.0357}
+2017-07-04 13:01:06,366 17673 INFO {count: 1, duration: 0.0414, idle: 281.2657}
+2017-07-04 13:01:12,416 17673 INFO {count: 0, duration: 0.0207}
+2017-07-04 13:01:25,508 17673 INFO {count: 0, duration: 0.0277}
+2017-07-04 13:01:34,575 17673 INFO {count: 1, duration: 0.0261, idle: 28.1822}
+2017-07-04 13:03:23,504 19206 INFO Checking if node1 can be used for copy
+2017-07-04 13:03:23,504 19206 INFO Node node1 seems good source, using it
+2017-07-04 13:03:23,504 19206 INFO public.pgbench_accounts: Using node node1 as provider
+2017-07-04 13:03:23,513 19206 INFO Provider: node1 (root)
+2017-07-04 13:03:23,516 19206 INFO Locking public.pgbench_accounts
+2017-07-04 13:03:23,516 19206 INFO Syncing public.pgbench_accounts
+2017-07-04 13:06:34,968 17673 INFO {idle: 300.3925}
+2017-07-04 13:11:35,256 17673 INFO {idle: 300.2879}
+2017-07-04 13:15:26,277 19312 INFO Checking if node1 can be used for copy
+2017-07-04 13:15:26,277 19312 INFO Node node1 seems good source, using it
+2017-07-04 13:15:26,277 19312 INFO public.pgbench_accounts: Using node node1 as provider
+2017-07-04 13:15:26,286 19312 INFO Provider: node1 (root)
+2017-07-04 13:15:26,290 19312 INFO Locking public.pgbench_accounts
+2017-07-04 13:15:26,290 19312 INFO Syncing public.pgbench_accounts
+2017-07-04 13:16:35,582 17673 INFO {idle: 300.3257}
+2017-07-04 13:18:27,251 17673 INFO {count: 9084, duration: 1.1749, idle: 110.4954}
+2017-07-04 13:18:29,293 17673 INFO {count: 1, duration: 0.0318, idle: 2.0099}
+2017-07-04 13:18:36,359 17673 INFO {count: 0, duration: 0.0335}
+2017-07-04 13:18:38,443 19357 INFO Checking if node1 can be used for copy
+2017-07-04 13:18:38,443 19357 INFO Node node1 seems good source, using it
+2017-07-04 13:18:38,444 19357 INFO public.pgbench_accounts: Using node node1 as provider
+2017-07-04 13:18:38,452 19357 INFO Provider: node1 (root)
+2017-07-04 13:18:38,455 19357 INFO Locking public.pgbench_accounts
+2017-07-04 13:18:38,456 19357 INFO Syncing public.pgbench_accounts
+2017-07-04 13:18:39,409 17673 INFO {count: 0, duration: 0.0317}
+2017-07-04 13:18:40,451 17673 INFO {count: 0, duration: 0.0365}
+2017-07-04 13:18:41,017 19357 INFO Counting public.pgbench_accounts
+2017-07-04 13:18:41,218 19357 INFO srcdb: 200000 rows, checksum=-50976030726
+2017-07-04 13:18:41,413 19357 INFO dstdb: 200000 rows, checksum=-50976030726
+2017-07-04 13:18:41,418 19357 INFO Checking if node1 can be used for copy
+2017-07-04 13:18:41,419 19357 INFO Node node1 seems good source, using it
+2017-07-04 13:18:41,419 19357 INFO public.pgbench_branches: Using node node1 as provider
+2017-07-04 13:18:41,433 19357 INFO Provider: node1 (root)
+2017-07-04 13:18:41,436 19357 INFO Locking public.pgbench_branches
+2017-07-04 13:18:41,436 19357 INFO Syncing public.pgbench_branches
+2017-07-04 13:18:41,712 17673 INFO {count: 0, duration: 0.2543}
+2017-07-04 13:18:42,745 17673 INFO {count: 0, duration: 0.0252}
+2017-07-04 13:18:43,778 17673 INFO {count: 0, duration: 0.0253}
+2017-07-04 13:18:44,227 19357 INFO Counting public.pgbench_branches
+2017-07-04 13:18:44,235 19357 INFO srcdb: 2 rows, checksum=-1315123060
+2017-07-04 13:18:44,235 19357 INFO dstdb: 2 rows, checksum=-1315123060
+2017-07-04 13:18:44,241 19357 INFO Checking if node1 can be used for copy
+2017-07-04 13:18:44,242 19357 INFO Node node1 seems good source, using it
+2017-07-04 13:18:44,242 19357 INFO public.pgbench_history: Using node node1 as provider
+2017-07-04 13:18:44,250 19357 INFO Provider: node1 (root)
+2017-07-04 13:18:44,253 19357 INFO Locking public.pgbench_history
+2017-07-04 13:18:44,254 19357 INFO Syncing public.pgbench_history
+2017-07-04 13:18:44,812 17673 INFO {count: 0, duration: 0.0253}
+2017-07-04 13:18:45,878 17673 INFO {count: 0, duration: 0.0587}
+2017-07-04 13:18:46,953 17673 INFO {count: 0, duration: 0.0671}
+2017-07-04 13:18:47,385 19357 INFO Counting public.pgbench_history
+2017-07-04 13:18:47,395 19357 INFO srcdb: 2270 rows, checksum=-23786559859
+2017-07-04 13:18:47,398 19357 INFO dstdb: 2270 rows, checksum=-23786559859
+2017-07-04 13:18:47,404 19357 INFO Checking if node1 can be used for copy
+2017-07-04 13:18:47,405 19357 INFO Node node1 seems good source, using it
+2017-07-04 13:18:47,405 19357 INFO public.pgbench_tellers: Using node node1 as provider
+2017-07-04 13:18:47,414 19357 INFO Provider: node1 (root)
+2017-07-04 13:18:47,417 19357 INFO Locking public.pgbench_tellers
+2017-07-04 13:18:47,418 19357 INFO Syncing public.pgbench_tellers
+2017-07-04 13:18:47,987 17673 INFO {count: 0, duration: 0.0246}
+2017-07-04 13:18:49,028 17673 INFO {count: 0, duration: 0.033}
+2017-07-04 13:18:49,053 17673 INFO {count: 0, duration: 0.0213}
+2017-07-04 13:18:50,087 17673 INFO {count: 0, duration: 0.0239}
+2017-07-04 13:18:50,475 19357 INFO Counting public.pgbench_tellers
+2017-07-04 13:18:50,491 19357 INFO srcdb: 20 rows, checksum=-9380069108
+2017-07-04 13:18:50,492 19357 INFO dstdb: 20 rows, checksum=-9380069108
+2017-07-04 13:18:53,128 17673 INFO {count: 0, duration: 0.0247}
+2017-07-04 13:19:00,187 17673 INFO {count: 0, duration: 0.0269}
+2017-07-04 13:19:15,279 17673 INFO {count: 0, duration: 0.0235}
+2017-07-04 13:19:45,437 17673 INFO {count: 0, duration: 0.0204}
+2017-07-04 13:20:26,653 17673 INFO {count: 1, duration: 0.021, idle: 117.3393}
+2017-07-04 13:21:26,961 17673 INFO {count: 0, duration: 0.0382}
+2017-07-04 13:22:09,194 17673 INFO {count: 1, duration: 0.0325, idle: 102.509}
+2017-07-04 13:22:27,336 17673 INFO {count: 1, duration: 0.0541, idle: 18.0875}
+2017-07-04 13:23:04,519 17673 INFO {count: 0, duration: 0.0222}
+2017-07-04 13:24:03,836 17673 INFO {count: 0, duration: 0.0354}
+2017-07-04 13:24:26,977 17673 INFO {count: 1, duration: 0.0392, idle: 119.6019}
+2017-07-04 13:25:14,202 17673 INFO {count: 0, duration: 0.028}
+2017-07-04 13:26:14,493 17673 INFO {count: 0, duration: 0.0354}
+2017-07-04 13:27:14,818 17673 INFO {count: 0, duration: 0.0481}
+2017-07-04 13:27:17,885 17673 INFO {count: 1, duration: 0.0489, idle: 170.859}
+2017-07-04 13:27:24,952 17673 INFO {count: 0, duration: 0.0298}
+2017-07-04 13:27:39,052 17673 INFO {count: 0, duration: 0.0323}
+2017-07-04 13:28:10,235 17673 INFO {count: 0, duration: 0.0353}
+2017-07-04 13:28:26,352 17673 INFO {count: 1, duration: 0.0327, idle: 68.4337}
+2017-07-04 13:28:59,509 17673 INFO {count: 0, duration: 0.0248}
+2017-07-04 13:29:59,768 17673 INFO {count: 0, duration: 0.0294}
+2017-07-04 13:30:26,934 17673 INFO {count: 1, duration: 0.0413, idle: 120.5414}
+2017-07-04 13:31:22,184 17673 INFO {count: 0, duration: 0.0432}
+2017-07-04 13:32:22,434 17673 INFO {count: 0, duration: 0.0266}
+2017-07-04 13:32:26,476 17673 INFO {count: 1, duration: 0.0217, idle: 119.5198}
+2017-07-04 13:32:35,534 17673 INFO {count: 0, duration: 0.0218}
+2017-07-04 13:32:54,634 17673 INFO {count: 0, duration: 0.0246}
+2017-07-04 13:33:31,801 17673 INFO {count: 0, duration: 0.0266}
+2017-07-04 13:34:27,067 17673 INFO {count: 1, duration: 0.0403, idle: 120.5508}
+2017-07-04 13:35:27,333 17673 INFO {count: 0, duration: 0.0335}
+2017-07-04 13:36:26,683 17673 INFO {count: 1, duration: 0.0895, idle: 119.5269}
+2017-07-04 13:37:26,991 17673 INFO {count: 0, duration: 0.0358}
+2017-07-04 13:37:36,058 17673 INFO {count: 1, duration: 0.021, idle: 69.3538}
+2017-07-04 13:37:55,183 17673 INFO {count: 0, duration: 0.0382}
