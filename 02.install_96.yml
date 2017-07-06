@@ -12,4 +12,6 @@
         - postgresql96-server
         - postgresql96-contrib
         - pg_repack96
+        - skytools-96
+        - skytools-94-modules
 ...
