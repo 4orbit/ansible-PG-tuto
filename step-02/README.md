@@ -21,7 +21,7 @@ With the repo configured, we can now install the **rpms**. Notice the use of var
         - postgresql96-contrib
         - pg_repack96
         - skytools-96
-        - skytools-94-modules
+        - skytools-96-modules
 ...
 ```
 Note: Although not discussed, pg\_repack96 removes database bloat, so I invite you to take time to read up on it.
