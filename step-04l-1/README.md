@@ -1,9 +1,13 @@
-Install Postgres 9.6 packages
+Configure londiste replication
 ================
 
-With the repo configured, we can now install the **rpms**. Notice the use of variables and the loop **with\_items** in our playbook invocation:
+Let's create another server pg4. Let it be a copy of the already created pg1.
 
-	ansible-playbook -i step-02/hosts.cfg 02.install_96.yml --extra-vars "host=dbservers"
+	lxc-stop -n pg1 && lxc-copy -n pg1 -N pg4 && lxc-start -n pg1 ; lxc-start -n pg4
+
+Suppose that in our example, server pg4 has a database l3simple\_db1, from which we will replicate several tables (pgbench\*) into the l3simple\_db2 database at server pg1.
+See file step-04l-1/hosts.cfg -- added server pg4.
+
 
 ``` yaml
 ---
