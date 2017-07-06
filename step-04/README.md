@@ -90,10 +90,5 @@ And here's our invocation. Notice we've typed out the replication password as an
         enabled: True
 ...
 ```
-Make clone pg3 as pg4, which we weel use for test logical replications.
-
-```bash
-lxc-stop -n pg3; lxc-copy -n pg3 -N pg4; lxc-start -n pg3
-```
 
 Now head to next step in directory [step-05](https://github.com/4orbit/ansible-PG-tuto/tree/master/step-05).
