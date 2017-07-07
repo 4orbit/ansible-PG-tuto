@@ -14,12 +14,18 @@ Then taste londiste with follow steps:
 * install skytools packages -- we do it at step 02
 * create databases l3simple\_db1 on pg4, l3simple\_db2 on pg1
 * instrt data into database l3simple\_db1 and applay sql script for create indexes and etc.
+* populate target database l3simple\_db2
+* create configuration file for londiste on eatch server and for pgqd on pg4
 
 
 ```yaml
 ansible -i step-04l-1/hosts.cfg pg4 -m shell -a "psql -c 'CREATE DATABASE l3simple_db1;'" --become --become-user postgres
 ansible -i step-04l-1/hosts.cfg pg1 -m shell -a "psql -c 'CREATE DATABASE l3simple_db2;'" --become --become-user postgres
 ansible -i step-04l-1/hosts.cfg pg4 -m shell -a "/usr/pgsql-9.6/bin/pgbench -i -s 2 -F 80 l3simple_db1" --become --become-user postgres
+ansible -i step-04l-1/hosts.cfg pg4 -m copy -a "src=step-04l-1/prepare_pgbenchdb_for_londiste.sql dest=~" --become --become-user postgres
+ansible -i step-04l-1/hosts.cfg pg4 -m shell -a "psql l3simple_db1 -f prepare_pgbenchdb_for_londiste.sql" --become --become-user postgres
+ssh postgres@pg4 "pg_dump -s -t pgbench* l3simple_db1" | ssh postgres@pg1 "psql l3simple_db2"
+
 
 ```
 
