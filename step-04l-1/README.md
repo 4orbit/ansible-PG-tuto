@@ -13,10 +13,13 @@ See file step-04l-1/hosts.cfg -- added server pg4. Test it with:
 Then taste londiste with follow steps:
 * install skytools packages -- we do it at step 02
 * create databases l3simple\_db1 on pg4, l3simple\_db2 on pg1
+* instrt data into database l3simple\_db1 and applay sql script for create indexes and etc.
+
 
 ```yaml
 ansible -i step-04l-1/hosts.cfg pg4 -m shell -a "psql -c 'CREATE DATABASE l3simple_db1;'" --become --become-user postgres
 ansible -i step-04l-1/hosts.cfg pg1 -m shell -a "psql -c 'CREATE DATABASE l3simple_db2;'" --become --become-user postgres
+ansible -i step-04l-1/hosts.cfg pg4 -m shell -a "/usr/pgsql-9.6/bin/pgbench -i -s 2 -F 80 l3simple_db1" --become --become-user postgres
 
 ```
 
