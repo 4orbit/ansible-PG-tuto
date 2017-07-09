@@ -38,7 +38,6 @@
   remote_user: postgres
 
   tasks:
-    - name: crate st3simple config files for standby
     - name: add new configuration to "st3simple/st3_l3simple_leaf.ini"
       blockinfile:
         create: yes
