@@ -4,7 +4,7 @@
  
   tasks:
     - name: crate dir for st3simple config files
-      file: path: ~/st3simple/log state: directory mode: 0755
-      file: path: ~/st3simple/pid state: directory mode: 0755
+      file: path=~/st3simple/log state=directory mode=0755
+      file: path=~/st3simple/pid state=directory mode=0755
 
 ...
