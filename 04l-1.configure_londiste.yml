@@ -8,5 +8,48 @@
       with_items:
         - "log"
         - "pid"
+
+- hosts: "{{ st3-master }}"
+  remote_user: postgres
+
+  tasks:
+    - name: add new configuration to "st3simple/pgqd.ini"
+      blockinfile:
+        create: yes
+        dest: ~/st3simple/pgqd.ini
+        block: |
+		[pgqd]
+		logfile = st3simple/log/pgqd.log
+		pidfile = st3simple/pid/pgqd.pid
+
+    - name: add new configuration to "st3simple/st3_l3simple_primary.ini"
+      blockinfile:
+        create: yes
+        dest: ~/st3simple/st3_l3simple_primary.ini
+        block: |
+		[londiste3]
+		job_name = st3_l3simple_db1
+		db = dbname=l3simple_db1
+		queue_name = replika
+		logfile = st3simple/log/st3_l3simple_db1.log
+		pidfile = st3simple/pid/st3_l3simple_db1.pid
+
+- hosts: "{{ st3-standby }}"
+  remote_user: postgres
+
+  tasks:
+    - name: crate st3simple config files for standby
+    - name: add new configuration to "st3simple/st3_l3simple_leaf.ini"
+      blockinfile:
+        create: yes
+        dest: ~/st3simple/st3_l3simple_leaf.ini
+        block: |
+		[londiste3]
+		job_name = st3_l3simple_db2
+		db = dbname=l3simple_db2
+		queue_name = replika
+		logfile = st3simple/log/st3_l3simple_db2.log
+		pidfile = st3simple/pid/st3_l3simple_db2.pid
+
 ...
 
