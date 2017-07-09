@@ -9,7 +9,7 @@
         - "log"
         - "pid"
 
-- hosts: "{{ st3-master }}"
+- hosts: st3-master
   remote_user: postgres
 
   tasks:
@@ -34,7 +34,7 @@
             logfile = st3simple/log/st3_l3simple_db1.log
             pidfile = st3simple/pid/st3_l3simple_db1.pid
 
-- hosts: "{{ st3-standby }}"
+- hosts: st3-standby
   remote_user: postgres
 
   tasks:

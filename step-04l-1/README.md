@@ -34,6 +34,28 @@ ansible-playbook -i step-04l-1/hosts.cfg 04l-1.configure_londiste.yml --extra-va
 
 ```
 
+and manualy add string to pg\_hba.conf
+
+```bash
+host    all             postgres             127.0.0.1/32            trust
+host    all             postgres             10.0.1.0/24            trust
+
+```
+and PG need reload ater this
+
+manual command on master
+
+```bash
+st3simple/st3_l3simple_primary.ini create-root node1 "user=postgres host=pg4 dbname=l3simple_db1"
+
+```
+
+on standby
+
+```bash
+londiste3 st3simple/st3_l3simple_leaf.ini create-leaf node2 dbname=l3simple_db2 --provider="dbname=l3simple_db1 user=postgres host=pg4"
+```
+
 ``` yaml
 ---
 вставлю. когда будет рабочий файл -- 04l-1.configure_londiste.yml
