@@ -33,7 +33,7 @@ done
 
 Let's turn everything on:
 
-PG servers^
+PG servers:
 ```bash
 for u in $(seq 3)
 do
