@@ -47,6 +47,7 @@ manual command on master
 
 ```bash
 st3simple/st3_l3simple_primary.ini create-root node1 "user=postgres host=pg4 dbname=l3simple_db1"
+londiste3 -d st3simple/st3_l3simple_primary.ini worker
 
 ```
 
@@ -54,12 +55,90 @@ on standby
 
 ```bash
 londiste3 st3simple/st3_l3simple_leaf.ini create-leaf node2 dbname=l3simple_db2 --provider="dbname=l3simple_db1 user=postgres host=pg4"
+londiste3 -d st3simple/st3_l3simple_leaf.ini worker
 ```
+Launch ticker daemon: (on master node1)
+
+```bash
+pgqd -d st3simple/pgqd.ini
+```
+Run command :
+```bash
+londiste3 st3simple/st3_l3simple_primary.ini add-table pgbench_*
+londiste3 st3simple/st3_l3simple_leaf.ini add-table pgbench_*
+```
+
+After add data and check replica working
+
+```bash
+pgbench -T 40 -c 5 l3simple_db1
+
+londiste3 st3simple/st3_l3simple_primary.ini compare
+londiste3 st3simple/st3_l3simple_leaf.ini compare
+
+londiste3 st3simple/st3_l3simple_leaf.ini status
+
+londiste3 st3simple/st3_l3simple_leaf.ini status
+
+```
+
+
 
 ``` yaml
 ---
-вставлю. когда будет рабочий файл -- 04l-1.configure_londiste.yml
+- hosts: "{{ host }}"
+  remote_user: postgres
+
+  tasks:
+    - name: crate dir for st3simple config files
+      file: path=~/st3simple/{{item}} state=directory mode=0755
+      with_items:
+        - "log"
+        - "pid"
+
+- hosts: st3-master
+  remote_user: postgres
+
+  tasks:
+    - name: add new configuration to "st3simple/pgqd.ini"
+      blockinfile:
+        create: yes
+        dest: ~/st3simple/pgqd.ini
+        block: |
+            [pgqd]
+            logfile = st3simple/log/pgqd.log
+            pidfile = st3simple/pid/pgqd.pid
+
+    - name: add new configuration to "st3simple/st3_l3simple_primary.ini"
+      blockinfile:
+        create: yes
+        dest: ~/st3simple/st3_l3simple_primary.ini
+        block: |
+            [londiste3]
+            job_name = st3_l3simple_db1
+            db = dbname=l3simple_db1
+            queue_name = replika
+            logfile = st3simple/log/st3_l3simple_db1.log
+            pidfile = st3simple/pid/st3_l3simple_db1.pid
+
+- hosts: st3-standby
+  remote_user: postgres
+
+  tasks:
+    - name: add new configuration to "st3simple/st3_l3simple_leaf.ini"
+      blockinfile:
+        create: yes
+        dest: ~/st3simple/st3_l3simple_leaf.ini
+        block: |
+            [londiste3]
+            job_name = st3_l3simple_db2
+            db = dbname=l3simple_db2
+            queue_name = replika
+            logfile = st3simple/log/st3_l3simple_db2.log
+            pidfile = st3simple/pid/st3_l3simple_db2.pid
+
 ...
+
 ```
 Note: Although not discussed, pg\_repack96 removes database bloat, so I invite you to take time to read up on it.
 
