@@ -1,0 +1,13 @@
+---
+- hosts: "{{ host }}"
+  remote_user: postgres
+  become: yes
+ 
+  tasks:
+    - name: crate dir for st3simple config files
+      file:
+        path: ~/st3simple/{log,pid}
+        state: directory
+        mode: 0755
+
+...

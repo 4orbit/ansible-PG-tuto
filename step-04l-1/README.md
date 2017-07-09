@@ -29,24 +29,41 @@ ssh postgres@pg4 "pg_dump -s -t pgbench* l3simple_db1" | ssh postgres@pg1 "psql 
 
 ```
 
-
 ``` yaml
 ---
 - hosts: "{{ host }}"
-  remote_user: ansible
+  remote_user: postgres
   become: yes
  
   tasks:
-    - name: install PostgreSQL version 9.6
-      yum:
-        name: "{{ item }}"
-        state: latest
-      with_items:
-        - postgresql96-server
-        - postgresql96-contrib
-        - pg_repack96
-        - skytools-96
-        - skytools-94-modules
+    - name: crate dir for st3simple config files
+      file:
+        path: ~/st3simple/{log,pid}
+        state: directory
+        mode: 0755
+
+- hosts: "{{ host }}"
+  remote_user: postgres
+ 
+    - name: add new configuration to "server.conf"
+      blockinfile:
+        create: yes
+        dest: /var/lib/pgsql/9.6/data/server.conf
+        block: |
+          listen_addresses = '*'
+          wal_level = hot_standby
+          max_wal_size = 480
+          max_wal_senders = 6
+          wal_keep_segments = 10
+          hot_standby = on
+ 
+    - name: update environment variables in UNIX account postgres
+      blockinfile:
+        create: yes
+        dest: /var/lib/pgsql/.pgsql_profile
+        block: |
+          export PGHOST=/tmp PAGER=less PGDATA=/var/lib/pgsql/9.6/data
+ 
 ...
 ```
 Note: Although not discussed, pg\_repack96 removes database bloat, so I invite you to take time to read up on it.
