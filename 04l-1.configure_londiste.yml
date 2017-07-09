@@ -1,11 +1,12 @@
 ---
 - hosts: "{{ host }}"
   remote_user: postgres
- 
-  tasks:
-    - name: crate log dir for st3simple config files
-      file: path=~/st3simple/log state=directory mode=0755
-    - name: crate pid dir for st3simple config files
-      file: path=~/st3simple/pid state=directory mode=0755
 
+  tasks:
+    - name: crate dir for st3simple config files
+      file: path=~/st3simple/{{item}} state=directory mode=0755
+      with_items:
+        - "log"
+        - "pid"
 ...
+
