@@ -34,56 +34,6 @@ ansible-playbook -i step-04l-1/hosts.cfg 04l-1.configure_londiste.yml --extra-va
 
 ```
 
-and manualy add string to pg\_hba.conf
-
-```bash
-host    all             postgres             127.0.0.1/32            trust
-host    all             postgres             10.0.1.0/24            trust
-
-```
-and PG need reload ater this
-
-manual command on master
-
-```bash
-st3simple/st3_l3simple_primary.ini create-root node1 "user=postgres host=pg4 dbname=l3simple_db1"
-londiste3 -d st3simple/st3_l3simple_primary.ini worker
-
-```
-
-on standby
-
-```bash
-londiste3 st3simple/st3_l3simple_leaf.ini create-leaf node2 dbname=l3simple_db2 --provider="dbname=l3simple_db1 user=postgres host=pg4"
-londiste3 -d st3simple/st3_l3simple_leaf.ini worker
-```
-Launch ticker daemon: (on master node1)
-
-```bash
-pgqd -d st3simple/pgqd.ini
-```
-Run command :
-```bash
-londiste3 st3simple/st3_l3simple_primary.ini add-table pgbench_*
-londiste3 st3simple/st3_l3simple_leaf.ini add-table pgbench_*
-```
-
-After add data and check replica working
-
-```bash
-pgbench -T 40 -c 5 l3simple_db1
-
-londiste3 st3simple/st3_l3simple_primary.ini compare
-londiste3 st3simple/st3_l3simple_leaf.ini compare
-
-londiste3 st3simple/st3_l3simple_leaf.ini status
-
-londiste3 st3simple/st3_l3simple_leaf.ini status
-
-```
-
-
-
 ``` yaml
 ---
 - hosts: "{{ host }}"
@@ -140,6 +90,73 @@ londiste3 st3simple/st3_l3simple_leaf.ini status
 ...
 
 ```
+
+and manualy add string to pg\_hba.conf
+
+```bash
+host    all             postgres             127.0.0.1/32            trust
+host    all             postgres             10.0.1.0/24            trust
+
+```
+and PG need reload ater this
+
+manual command on master
+
+```bash
+londiste3 st3simple/st3_l3simple_primary.ini create-root node1 "user=postgres host=pg4 dbname=l3simple_db1"
+londiste3 -d st3simple/st3_l3simple_primary.ini worker
+
+```
+
+on standby
+
+```bash
+londiste3 st3simple/st3_l3simple_leaf.ini create-leaf node2 dbname=l3simple_db2 --provider="dbname=l3simple_db1 user=postgres host=pg4"
+londiste3 -d st3simple/st3_l3simple_leaf.ini worker
+```
+-------------
+DRAFT use user replicant with known password
+need give additional permitions for our databases/tables
+```sql
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public to replicant;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public to replicant;
+```
+master
+```bash
+londiste3 st3simple/st3_l3simple_primary.ini create-root node1 "user=replicant password=mypassword host=10.0.3.114 dbname=l3simple_db1"
+```
+slave
+```bash
+londiste3 st3simple/st3_l3simple_leaf.ini create-leaf node2 "user=replicant password=mypassword host=10.0.3.69 dbname=l3simple_db2" --provider="user=replicant password=mypassword host=10.0.3.114 dbname=l3simple_db1"
+```
+-------------
+
+Launch ticker daemon: (on master node1)
+
+```bash
+pgqd -d st3simple/pgqd.ini
+```
+Run command :
+```bash
+londiste3 st3simple/st3_l3simple_primary.ini add-table pgbench_*
+londiste3 st3simple/st3_l3simple_leaf.ini add-table pgbench_*
+```
+
+After add data and check replica working
+
+```bash
+/usr/pgsql-9.6/bin/pgbench -T 40 -c 5 l3simple_db1
+
+londiste3 st3simple/st3_l3simple_primary.ini compare
+londiste3 st3simple/st3_l3simple_leaf.ini compare
+
+londiste3 st3simple/st3_l3simple_leaf.ini status
+
+londiste3 st3simple/st3_l3simple_leaf.ini status
+
+```
+
+
 Note: Although not discussed, pg\_repack96 removes database bloat, so I invite you to take time to read up on it.
 
 
