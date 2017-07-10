@@ -41,6 +41,13 @@
         priv: ALL
         state: present
 
+    - name: grant permissions for replicant
+      postgresql_privs:
+        db: l3simple_db1
+        privs: ALL
+        type: database
+        role: replicant
+
 - hosts: st3-standby
   remote_user: postgres
 
@@ -63,6 +70,13 @@
         name: replicant
         priv: ALL
         state: present
+
+    - name: grant permissions for replicant
+      postgresql_privs:
+        db: l3simple_db2
+        privs: ALL
+        type: database
+        role: replicant
 
 ...
 
