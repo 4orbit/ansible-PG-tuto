@@ -11,4 +11,5 @@
       with_items:
         - postgresql96-server
         - postgresql96-contrib
+        - postgresql96-pglogical
 ...

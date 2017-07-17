@@ -38,11 +38,14 @@
         dest: /var/lib/pgsql/9.6/data/server.conf
         block: |
           listen_addresses = '*'
-          wal_level = hot_standby
+          wal_level = 'logical'
           max_wal_size = 480
-          max_wal_senders = 6
+          max_worker_processes = 10
+          max_replication_slots = 10
+          max_wal_senders = 10
           wal_keep_segments = 10
           hot_standby = on
+          shared_preload_libraries = 'pglogical'
  
     - name: add new configuration to "pg_hba.conf"
       blockinfile:
