@@ -19,7 +19,6 @@ With the repo configured, we can now install the **rpms**. Notice the use of var
       with_items:
         - postgresql96-server
         - postgresql96-contrib
-        - pg_repack96
 ...
 ```
 Note: Although not discussed, pg\_repack96 removes database bloat, so I invite you to take time to read up on it.

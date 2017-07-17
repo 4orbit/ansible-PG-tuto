@@ -13,4 +13,9 @@
       yum:
         name: https://download.postgresql.org/pub/repos/yum/testing/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm
         state: present
+
+    - name: install repo for pglogical
+      yum:
+        name: http://packages.2ndquadrant.com/pglogical/yum-repo-rpms/pglogical-rhel-1.0-3.noarch.rpm
+        state: present
 ...

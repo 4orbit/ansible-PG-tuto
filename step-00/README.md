@@ -118,14 +118,12 @@ pg1 | SUCCESS => {
 
 # If ssh to slow
 
+This better do against template\_centos7 before cloning
+
 Аdd string at ent of **/etc/ssh/sshd\_conf** on pgX servers
 
 	UseDNS no
-
-and set 
-
 	GSSAPIAuthentication no
-	#	GSSAPIAuthentication yes
 
 Add string at end of **/etc/ssh/ssh\_conf** on ansible server
 

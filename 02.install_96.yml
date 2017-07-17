@@ -11,5 +11,4 @@
       with_items:
         - postgresql96-server
         - postgresql96-contrib
-        - pg_repack96
 ...
