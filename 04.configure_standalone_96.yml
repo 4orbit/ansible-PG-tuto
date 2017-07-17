@@ -61,6 +61,11 @@
         block: |
           export PGHOST=/tmp PAGER=less PGDATA=/var/lib/pgsql/9.6/data
  
+    - name:  Adds pglogical ext
+      postgresql_ext:
+          name: pglogical
+          db: postgres
+ 
 - hosts: "{{ host }}"
   remote_user: ansible
   become: yes
