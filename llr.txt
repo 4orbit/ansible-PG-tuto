@@ -1,0 +1,37 @@
+ansible
+==========
+
+ansible -i step-04l-1/hosts.cfg pg5 -m shell -a "psql -c 'CREATE DATABASE l3simple_db1;'" --become --become-user postgres
+
+ansible -i step-04l-1/hosts.cfg pg2 -m shell -a "psql -c 'CREATE DATABASE l3simple_db2;'" --become --become-user postgres
+
+ansible -i step-04l-1/hosts.cfg pg5 -m shell -a "/usr/pgsql-10/bin/pgbench -i -s 2 -F 80 l3simple_db1" --become --become-user postgres
+
+ansible -i step-04l-1/hosts.cfg pg5 -m copy -a "src=step-04l-1/prepare_pgbenchdb_for_londiste.sql dest=~" --become --become-user postgres
+
+ssh postgres@pg5 "pg_dump -s -t pgbench* l3simple_db1" | ssh postgres@pg2 "psql l3simple_db2"
+
+
+
+pg5
+===========
+
+create publication pub1 for ALL TABLES ;
+
+grant SELECT on pgbench_tellers to replicant ;
+
+/usr/pgsql-10/bin/pgbench -T 60 -c 10 l3simple_db1
+
+
+pg2
+============
+
+create subscription sub5 connection 'host=pg5 dbname=l3simple_db1 password=mypassword user=replicant' publication pub1;
+
+alter subscription sub5 disable ;
+
+alter subscription sub5 enable ;
+
+truncate pgbench_history;
+
+alter subscription sub5 refresh publication ;
