@@ -1,0 +1,82 @@
+ansible
+==========
+
+ansible -i step-04-pgl/hosts.cfg pg4 -m shell -a "psql -c 'CREATE DATABASE l3simple_db1;'" --become --become-user postgres
+
+ansible -i step-04-pgl/hosts.cfg pg1 -m shell -a "psql -c 'CREATE DATABASE l3simple_db2;'" --become --become-user postgres
+
+ansible -i step-04-pgl/hosts.cfg pg4 -m shell -a "/usr/pgsql-9.6/bin/pgbench -i -s 2 -F 80 l3simple_db1" --become --become-user postgres
+
+ansible -i step-04-pgl/hosts.cfg pg4 -m copy -a "src=step-04-pgl/prepare_pgbenchdb_for_londiste.sql dest=~" --become --become-user postgres
+
+ansible -i step-04-pgl/hosts.cfg pg4 -m shell -a "psql -f prepare_pgbenchdb_for_londiste.sql -d l3simple_db1" --become --become-user postgres
+
+ssh postgres@pg4 "pg_dump -s -t pgbench* l3simple_db1" | ssh postgres@pg1 "psql l3simple_db2"
+
+ansible -i step-04-pgl/hosts.cfg pg4 -m shell -a "psql -c 'create extension pglogical' -d l3simple_db1" --become --become-user postgres
+ansible -i step-04-pgl/hosts.cfg pg1 -m shell -a "psql -c 'create extension pglogical' -d l3simple_db2" --become --become-user postgres
+
+
+pg4
+===========
+grant ALL on DATABASE l3simple_db1 TO replicant ;
+grant ALL on SCHEMA pglogical to replicant ;
+
+alter role replicant superuser ;
+
+select pglogical.drop_node( node_name := 'pg4logical', ifexists := true );
+
+SELECT pglogical.create_node(
+node_name := 'pg4logical',
+dsn := 'host=10.0.3.100 port=5432 dbname=l3simple_db1' );
+
+select pglogical.drop_replication_set(set_name := 'pg4pub1');
+select pglogical.create_replication_set(set_name := 'pg4pub1');
+
+select pglogical.replication_set_add_table(set_name := 'pg4pub1'::name, relation :='public.pgbench_accounts'::regclass, synchronize_data := true );
+select pglogical.replication_set_add_table(set_name := 'pg4pub1'::name, relation :='public.pgbench_branches'::regclass, synchronize_data := true );
+select pglogical.replication_set_add_table(set_name := 'pg4pub1'::name, relation :='public.pgbench_history'::regclass, synchronize_data := true );
+select pglogical.replication_set_add_table(set_name := 'pg4pub1'::name, relation :='public.pgbench_tellers'::regclass, synchronize_data := true );
+
+
+/usr/pgsql-9.6/bin/pgbench -T 60 -c 10 l3simple_db1
+
+psql -d l3simple_db1 -qAtX -c "select * from pgbench_tellers order by tid" | md5sum -
+
+
+pg1
+============
+
+grant ALL on DATABASE l3simple_db2 TO replicant ;
+grant ALL on SCHEMA pglogical to replicant ;
+
+alter role replicant superuser ;
+
+
+SELECT pglogical.drop_subscription( subscription_name := 'pg1sub1', ifexists := true);
+
+select pglogical.drop_node(node_name := 'pg1logical', ifexists := true);
+
+
+SELECT pglogical.create_node(
+node_name := 'pg1logical',
+dsn := 'host=10.0.3.34 port=5432 dbname=l3simple_db2 user=replicant password=mypassword');
+
+SELECT pglogical.create_subscription(
+subscription_name := 'pg1sub1',
+provider_dsn := 'host=10.0.3.100 port=5432 dbname=l3simple_db1
+user=replicant password=mypassword',
+replication_sets := ARRAY['pg4pub1'],
+synchronize_structure := false,
+synchronize_data := true);
+
+psql -d l3simple_db2 -qAtX -c "select * from pgbench_tellers order by tid" | md5sum -
+
+
+alter subscription sub5 disable ;
+
+alter subscription sub5 enable ;
+
+truncate pgbench_history;
+
+alter subscription sub5 refresh publication ;
